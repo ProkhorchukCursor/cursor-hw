@@ -66,7 +66,8 @@ const discount = Math.floor(Math.random() * 100);
 
 //10)
 
-const toPay = summ - summ * (discount / 100);
+const summDiscount = Math.round(summ * (discount / 100));
+const toPay = summ - summDiscount;
 const toPayRound = Math.round(toPay * 100) / 100;
 
 // console.log(toPayRound);
@@ -74,25 +75,25 @@ const toPayRound = Math.round(toPay * 100) / 100;
 //11)
 
 const costPrice = Math.round((summ / 2) * 100) / 100;
-const profit = (toPayRound * 100 - costPrice * 100) / 100;
+const profit = (costPrice * 100 - summDiscount * 100) / 100;
 
 // console.log(profit);
 
 // Advanced
 
 const string = `
-  Максимальна цiна: ${maxPrice}
-  Мiнiмальна цiна: ${minPrice}
-  Вартiсть всiх товарiв: ${summ}
-  Сума цiлих цiн товарiв: ${summFloor}
-  Округлена сума цiн товарiв: ${summSeil}
-  Чи є сума всiх товарiв парним числом?: ${summBooleanDouble}
-  Чи є сума всiх товарiв непарним числом?: ${summBooleanNotDouble}
-  Решта: ${rest}
-  Cереднє округлене цiн: ${mean}
-  Знижка: ${discount}
-  Сума до оплати: ${toPayRound}
-  Чистий прибуток: ${profit}
+  Максимальна цiна: ${maxPrice} $
+  Мiнiмальна цiна: ${minPrice} $
+  Вартiсть всiх товарiв: ${summ} $
+  Сума цiлих цiн товарiв: ${summFloor} $
+  Округлена сума цiн товарiв: ${summSeil} $
+  Чи є сума всiх товарiв парним числом?: ${summBooleanDouble} $
+  Чи є сума всiх товарiв непарним числом?: ${summBooleanNotDouble} $
+  Решта: ${rest} $
+  Cереднє округлене цiн: ${mean} $
+  Знижка: ${discount} %
+  Сума до оплати: ${toPayRound} $
+  Чистий прибуток: ${profit} $
 `;
 
 console.log(string);
