@@ -34,14 +34,14 @@ const summFloor = candyFloor + bananaFloor + dressFloor;
 
 //5)
 
-const summSeil = Math.ceil(summ / 100) * 100;
+const summRound = Math.round(summ / 100) * 100;
 
-// console.log(summSeil);
+// console.log(summRound);
 
 //6)
 
-const summBooleanDouble = Math.floor(summ) % 2 === 2;
-const summBooleanNotDouble = Math.floor(summ) % 2 !== 2;
+const summBooleanDouble = Math.floor(summFloor) % 2 === 2;
+const summBooleanNotDouble = Math.floor(summFloor) % 2 !== 2;
 
 // console.log(summBooleanDouble);
 // console.log(summBooleanNotDouble);
@@ -86,7 +86,7 @@ const string = `
   Мiнiмальна цiна: ${minPrice} $
   Вартiсть всiх товарiв: ${summ} $
   Сума цiлих цiн товарiв: ${summFloor} $
-  Округлена сума цiн товарiв: ${summSeil} $
+  Округлена сума цiн товарiв: ${summRound} $
   Чи є сума всiх товарiв парним числом?: ${summBooleanDouble} $
   Чи є сума всiх товарiв непарним числом?: ${summBooleanNotDouble} $
   Решта: ${rest} $
