@@ -40,8 +40,8 @@ const summRound = Math.round(summ / 100) * 100;
 
 //6)
 
-const summBooleanDouble = Math.floor(summFloor) % 2 === 2;
-const summBooleanNotDouble = Math.floor(summFloor) % 2 !== 2;
+const summBooleanDouble = Math.floor(summFloor) % 2 !== 1;
+const summBooleanNotDouble = Math.floor(summFloor) % 2 === 1;
 
 // console.log(summBooleanDouble);
 // console.log(summBooleanNotDouble);
