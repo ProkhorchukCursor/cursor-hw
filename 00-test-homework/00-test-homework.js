@@ -40,8 +40,8 @@ const summRound = Math.round(summ / 100) * 100;
 
 //6)
 
-const summBooleanDouble = Math.floor(summFloor) % 2 !== 1;
-const summBooleanNotDouble = Math.floor(summFloor) % 2 === 1;
+const summBooleanDouble = Math.floor(summ) % 2 === 0;
+const summBooleanNotDouble = Math.floor(summ) % 2 === 1;
 
 // console.log(summBooleanDouble);
 // console.log(summBooleanNotDouble);
@@ -87,8 +87,8 @@ const string = `
   Вартiсть всiх товарiв: ${summ} $
   Сума цiлих цiн товарiв: ${summFloor} $
   Округлена сума цiн товарiв: ${summRound} $
-  Чи є сума всiх товарiв парним числом?: ${summBooleanDouble} $
-  Чи є сума всiх товарiв непарним числом?: ${summBooleanNotDouble} $
+  Чи є сума всiх товарiв(${summ}) парним числом?: ${summBooleanDouble} $
+  Чи є сума всiх товарiв(${summ}) непарним числом?: ${summBooleanNotDouble} $
   Решта: ${rest} $
   Cереднє округлене цiн: ${mean} $
   Знижка: ${discount} %
@@ -97,3 +97,5 @@ const string = `
 `;
 
 console.log(string);
+
+document.writeln(`<h2>${string}</h2>`);
