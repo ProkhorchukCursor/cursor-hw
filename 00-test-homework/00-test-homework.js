@@ -87,8 +87,12 @@ const string = `
   Вартiсть всiх товарiв: ${summ} $
   Сума цiлих цiн товарiв: ${summFloor} $
   Округлена сума цiн товарiв: ${summRound} $
-  Чи є сума всiх товарiв(${summ}) парним числом?: ${summBooleanDouble} $
-  Чи є сума всiх товарiв(${summ}) непарним числом?: ${summBooleanNotDouble} $
+  Чи є сума всiх товарiв(${Math.floor(
+    summ
+  )}) парним числом?: ${summBooleanDouble} $
+  Чи є сума всiх товарiв(${Math.floor(
+    summ
+  )}) непарним числом?: ${summBooleanNotDouble} $
   Решта: ${rest} $
   Cереднє округлене цiн: ${mean} $
   Знижка: ${discount} %
