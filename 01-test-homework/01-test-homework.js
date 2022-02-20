@@ -20,7 +20,11 @@
 
 //! 1)
 
-let N = Number(prompt('Напишiть ваше число N'));
+let N = Number(prompt("Напишiть ваше число N"));
+
+if (!N) {
+  N = 0;
+}
 
 // console.log(N);
 
@@ -32,7 +36,11 @@ const isDobleN = N % 1 === 0;
 
 //! 3)
 
-let M = Number(prompt('Напишiть ваше число M'));
+let M = Number(prompt("Напишiть ваше число M"));
+
+if (!M) {
+  M = 0;
+}
 
 // console.log(M);
 
@@ -44,7 +52,7 @@ const isDobleM = M % 1 === 0;
 
 //! 5)
 
-const question = confirm('Чи потрiбно пропускати парнi числа?');
+const question = confirm("Чи потрiбно пропускати парнi числа?");
 
 // console.log(question);
 
@@ -54,15 +62,17 @@ let summ = 0;
 let numberN = N;
 let numberM = M;
 
-if (N < M) {
-  while (numberN <= M) {
-    summ += numberN;
-    numberN++;
-  }
-} else {
-  while (numberM <= N) {
-    summ += numberM;
-    numberM++;
+if (N || M) {
+  if (N < M) {
+    while (numberN <= M) {
+      summ += numberN;
+      numberN++;
+    }
+  } else {
+    while (numberM <= N) {
+      summ += numberM;
+      numberM++;
+    }
   }
 }
 
@@ -71,28 +81,30 @@ if (N < M) {
 //! 7)
 
 let summWithIf = 0;
-let numberNWithIf = N;
-let numberMWithIf = M;
+let numberMin = N;
+let numberMax = M;
+if (N > M) {
+  numberMin = M;
+  numberMax = N;
+}
 
-if (N < M) {
-  while (numberNWithIf <= M) {
+if (numberMin || numberMax) {
+  while (numberMin <= numberMax) {
     if (question) {
-      if (numberNWithIf % 2 !== 0) {
-        summWithIf += numberNWithIf;
+      if (numberMin % 2 === 1) {
+        summWithIf += numberMin;
+        numberMin++;
+      } else {
+        numberMin++;
       }
-      numberNWithIf++;
-    }
-  }
-} else {
-  while (numberMWithIf <= N) {
-    if (question) {
-      if (numberMWithIf % 2 !== 0) {
-        summWithIf += numberMWithIf;
-      }
-      numberMWithIf++;
+    } else {
+      summWithIf += numberMin;
+      numberMin++;
     }
   }
 }
+
+// console.log(summWithIf);
 
 //! 8)
 
