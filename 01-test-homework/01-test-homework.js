@@ -29,10 +29,10 @@ let N = Number(prompt(`Напишiть ваше цiле число N.`));
 const isIntegerN = N % 1 === 0;
 
 while (!isIntegerN || !N) {
-  N = Number(prompt(`Ви не написали цiле число, спробуйте знов.`));
-  if (isIntegerN || N) {
-    break;
+  if (!isIntegerN) {
+    N = Number(prompt(`Ви не написали цiле число, спробуйте знов.`));
   }
+  break;
 }
 
 // console.log(isIntegerN);
@@ -47,9 +47,12 @@ let M = Number(prompt(`Напишiть ваше цiле число M.`));
 
 const isIntegerM = M % 1 === 0;
 
-while (!isIntegerM || !M) {
-  M = Number(prompt(`Ви не написали цiле число, спробуйте знов.`));
-  if (isIntegerM || M) {
+while (!isIntegerM || !M || M <= N) {
+  if (!isIntegerM || M <= N) {
+    M = Number(
+      prompt(`Ваше число має бути бiльше ${N}. Та бути цiлим числом.`)
+    );
+  } else {
     break;
   }
 }
@@ -89,10 +92,10 @@ if (N || M) {
 let summWithIf = 0;
 let numberMin = N;
 let numberMax = M;
-if (N > M) {
-  numberMin = M;
-  numberMax = N;
-}
+// if (N > M) {
+//   numberMin = M;
+//   numberMax = N;
+// }
 
 if (numberMin || numberMax) {
   while (numberMin <= numberMax) {
