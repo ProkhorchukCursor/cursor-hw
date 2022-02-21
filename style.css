@@ -1,0 +1,59 @@
+h1 {
+  margin: 0;
+}
+
+h2 {
+  text-align: center;
+}
+
+ol {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover,
+a:focus {
+  color: rgb(117, 102, 255);
+  transition: color 0.4s;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.home-title {
+  padding-bottom: 20px;
+  margin: 20px 0;
+  text-align: center;
+  border-bottom: 2px solid rgb(117, 102, 255);
+}
+
+.home-list-item:hover,
+.home-list-item:focus-within {
+  color: rgb(117, 102, 255);
+  transition: color 0.4s;
+}
+
+.home-list-item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.navigation-link {
+  font-size: 24px;
+}
+
+.navigation-link:hover,
+.navigation-link:focus {
+  color: rgb(117, 102, 255);
+  transition: color 0.4s;
+}
+
+.result-container {
+  text-align: start;
+}

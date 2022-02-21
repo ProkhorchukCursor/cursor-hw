@@ -82,22 +82,48 @@ const profit = (costPrice * 100 - summDiscount * 100) / 100;
 // Advanced
 
 const string = `
-  Максимальна цiна: ${maxPrice} $
-  Мiнiмальна цiна: ${minPrice} $
-  Вартiсть всiх товарiв: ${summ} $
-  Сума цiлих цiн товарiв: ${summFloor} $
-  Округлена сума цiн товарiв: ${summRound} $
-  Чи є сума всiх товарiв(${Math.floor(
-    summ
-  )}) парним числом?: ${summBooleanDouble} $
-  Чи є сума всiх товарiв(${Math.floor(
-    summ
-  )}) непарним числом?: ${summBooleanNotDouble} $
-  Решта: ${rest} $
-  Cереднє округлене цiн: ${mean} $
-  Знижка: ${discount} %
-  Сума до оплати: ${toPayRound} $
-  Чистий прибуток: ${profit} $
+<div class="container result-container">
+  <p>
+    Максимальна цiна: ${maxPrice} $
+  </p>
+  <p>
+    Мiнiмальна цiна: ${minPrice} $
+  </p>
+  <p>
+    Вартiсть всiх товарiв: ${summ} $
+  </p>
+  <p>
+    Сума цiлих цiн товарiв: ${summFloor} $
+  </p>
+  <p>
+    Округлена сума цiн товарiв: ${summRound} $
+  </p>
+  <p>
+    Чи є сума всiх товарiв(${Math.floor(
+      summ
+    )}) парним числом?: ${summBooleanDouble} $
+  </p>
+  <p>
+    Чи є сума всiх товарiв(${Math.floor(
+      summ
+    )}) непарним числом?: ${summBooleanNotDouble} $
+  </p>
+  <p>
+    Решта: ${rest} $
+  </p>
+  <p>
+    Cереднє округлене цiн: ${mean} $
+  </p>
+  <p>
+    Знижка: ${discount} %
+  </p>
+  <p>
+    Сума до оплати: ${toPayRound} $
+  </p>
+  <p>
+    Чистий прибуток: ${profit} $
+  </p>
+</div>
 `;
 
 console.log(string);

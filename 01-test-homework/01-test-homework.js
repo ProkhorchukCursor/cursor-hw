@@ -18,9 +18,12 @@
 // Приклад: користувач ввів такі значення для N=10, M=100, ПропускатиПарні=FALSE – сума чисел виведена на екрані буде === 5005
 // Приклад: користувач ввів такі значення для N=1, M=10, ПропускатиПарні=FALSE – сума чисел виведена на екрані буде === 55
 
+const message =
+  'Строки будуть прирiвнюватися до 0. Дробнi числа округлюються. Для них використовувати "."';
+
 //! 1)
 
-let N = Number(prompt("Напишiть ваше число N"));
+let N = Number(prompt(`Напишiть ваше число N. ${message}`));
 
 if (!N) {
   N = 0;
@@ -30,13 +33,17 @@ if (!N) {
 
 //! 2)
 
-const isDobleN = N % 1 === 0;
+const isIntegerN = N % 1 === 0;
 
-// console.log(isDobleN);
+if (!isIntegerN) {
+  N = Math.round(N);
+}
+
+// console.log(isIntegerN);
 
 //! 3)
 
-let M = Number(prompt("Напишiть ваше число M"));
+let M = Number(prompt(`Напишiть ваше число M. ${message}`));
 
 if (!M) {
   M = 0;
@@ -46,9 +53,13 @@ if (!M) {
 
 //! 4)
 
-const isDobleM = M % 1 === 0;
+const isIntegerM = M % 1 === 0;
 
-// console.log(isDobleM);
+if (!isIntegerM) {
+  M = Math.round(M);
+}
+
+// console.log(isIntegerM);
 
 //! 5)
 
@@ -108,8 +119,8 @@ if (numberMin || numberMax) {
 
 //! 8)
 
-const result = `Користувач ввiв такi значення для N=${N}, M=${M}, Пропускати Парнi = ${question} – сума чисел виведена на екранi буде === ${summWithIf}`;
+const result = `Користувач ввiв такi значення для N=${N}, M=${M}. N це цiле число? - ${isIntegerN}. M це цiле число? - ${isIntegerM}. Пропускати Парнi = ${question} – сума чисел виведена на екранi буде === ${summWithIf}`;
 
 console.log(result);
 
-document.writeln(`<h2>${result}</h2>`);
+document.writeln(`<div class="container"><h2>${result}</h2></div>`);
