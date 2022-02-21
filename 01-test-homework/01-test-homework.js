@@ -18,16 +18,9 @@
 // Приклад: користувач ввів такі значення для N=10, M=100, ПропускатиПарні=FALSE – сума чисел виведена на екрані буде === 5005
 // Приклад: користувач ввів такі значення для N=1, M=10, ПропускатиПарні=FALSE – сума чисел виведена на екрані буде === 55
 
-const message =
-  'Строки будуть прирiвнюватися до 0. Дробнi числа округлюються. Для них використовувати "."';
-
 //! 1)
 
-let N = Number(prompt(`Напишiть ваше число N. ${message}`));
-
-if (!N) {
-  N = 0;
-}
+let N = Number(prompt(`Напишiть ваше цiле число N.`));
 
 // console.log(N);
 
@@ -35,19 +28,18 @@ if (!N) {
 
 const isIntegerN = N % 1 === 0;
 
-if (!isIntegerN) {
-  N = Math.round(N);
+while (!isIntegerN || !N) {
+  N = Number(prompt(`Ви не написали цiле число, спробуйте знов.`));
+  if (isIntegerN || N) {
+    break;
+  }
 }
 
 // console.log(isIntegerN);
 
 //! 3)
 
-let M = Number(prompt(`Напишiть ваше число M. ${message}`));
-
-if (!M) {
-  M = 0;
-}
+let M = Number(prompt(`Напишiть ваше цiле число M.`));
 
 // console.log(M);
 
@@ -55,8 +47,11 @@ if (!M) {
 
 const isIntegerM = M % 1 === 0;
 
-if (!isIntegerM) {
-  M = Math.round(M);
+while (!isIntegerM || !M) {
+  M = Number(prompt(`Ви не написали цiле число, спробуйте знов.`));
+  if (isIntegerM || M) {
+    break;
+  }
 }
 
 // console.log(isIntegerM);
