@@ -20,48 +20,43 @@
 
 //! 1)
 
-let N = Number(prompt(`Напишiть ваше цiле число N.`));
+let N;
+// N = Number(prompt(`Напишiть ваше цiле число N.`));
 
 // console.log(N);
 
 //! 2)
 
-const isIntegerN = N % 1 === 0;
+let isIntegerN;
 
-while (!isIntegerN || !N) {
-  if (!isIntegerN) {
-    N = Number(prompt(`Ви не написали цiле число, спробуйте знов.`));
-  }
-  break;
-}
+do {
+  N = +prompt(`Напишiть ваше цiле число N.`);
+  isIntegerN = Number.isInteger(N);
+} while (!N || !isIntegerN);
 
 // console.log(isIntegerN);
 
 //! 3)
 
-let M = Number(prompt(`Напишiть ваше цiле число M.`));
+let M;
+// M = Number(prompt(`Напишiть ваше цiле число M.`));
 
 // console.log(M);
 
 //! 4)
 
-const isIntegerM = M % 1 === 0;
+let isIntegerM;
 
-while (!isIntegerM || !M || M <= N) {
-  if (!isIntegerM || M <= N) {
-    M = Number(
-      prompt(`Ваше число має бути бiльше ${N}. Та бути цiлим числом.`)
-    );
-  } else {
-    break;
-  }
-}
+do {
+  M = +prompt(`Напишiть ваше цiле число M. Воно повинно бути бiльше ${N}`);
+  isIntegerM = Number.isInteger(M);
+} while (!M || !isIntegerM || M <= N);
 
 // console.log(isIntegerM);
 
 //! 5)
 
-const question = confirm("Чи потрiбно пропускати парнi числа?");
+const question = confirm('Чи потрiбно пропускати парнi числа?');
 
 // console.log(question);
 
