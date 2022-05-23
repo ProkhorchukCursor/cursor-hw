@@ -35,11 +35,18 @@ getMaxDigitButtonEl.addEventListener(
 // 2) Створити функцію, яка визначає ступінь числа. Не використовуючи Math.pow та **. Використовуйте цикл
 
 const getPow = (base, exponent) => {
+ if (base === 1 || exponent === 0) {
+  return 1;
+ }
  let result = base;
- for (let i = 0; i < exponent - 1; i++) {
+ for (let i = 0; i < Math.abs(exponent) - 1; i++) {
   result = result * base;
  }
- return result;
+ if (exponent < 0) {
+  return 1 / result;
+ } else {
+  return result;
+ }
 };
 
 const getPowButtonEl = document.querySelector('#getPow-button');
