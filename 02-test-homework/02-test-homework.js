@@ -140,6 +140,9 @@ getRandomNumberButtonEl.addEventListener(
 // Приклад: countLetter("а", "Асталавіста") -> 4
 
 const countLetter = (string, word) => {
+ if (typeof Number(string) === 'number') {
+  return 'Ви ввели число';
+ }
  let result = 0;
  const stringToLower = string.toLowerCase();
  for (let i = 0; i < word.length; i++) {
@@ -274,6 +277,9 @@ getRandomPasswordButtonEl.addEventListener(
 // Приклад: deleteLetters('a', "blablabla") -> "blblbl"
 
 const deleteLetters = (letter, string) => {
+ if (typeof Number(letter) === 'number') {
+  return 'Ви ввели число';
+ }
  let result = '';
  for (let i = 0; i < string.length; i++) {
   const element = string[i].toLowerCase();
@@ -332,6 +338,9 @@ isPalyndromButtonEl.addEventListener(
 // Приклад: deleteDuplicateLetter("Бісквіт був дуже ніжним") -> "сктдеим"
 
 const deleteDuplicateLetter = (string) => {
+ if (typeof Number(string) === 'number') {
+  return 'Ви ввели число';
+ }
  let result = '';
  for (let i = 0; i < string.length; i++) {
   const element = string[i].toLowerCase();
