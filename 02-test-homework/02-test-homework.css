@@ -1,0 +1,12 @@
+li {
+    border-bottom: 4px solid #000;
+}
+
+.function-title,
+.result-container {
+    margin: 20px 0;
+}
+
+.result {
+    color: brown;
+}

@@ -1,18 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../style.css"">
+ <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="./02-test-homework.css" />
   <title>02-test-homework</title>
-</head>
-<body>
+ </head>
+ <body>
   <div class="container">
-    <h1 class="home-title">02-test-homework</h1>
-    <a class="navigation-link" href="../index.html">	
-      &#8666; To main</a>
+   <h1 class="home-title">02-test-homework</h1>
+   <a class="navigation-link" href="../index.html"> &#8666; To main</a>
+   <ul>
+    <li>
+     <h3 class="function-title">
+      1) Створити функцію getMaxDigit(number) – яка отримує будь-яке число та
+      виводить найбільшу цифру в цьому числі.
+     </h3>
+     <input type="number" id="getMaxDigit-input" placeholder="Введіть число" />
+     <button id="getMaxDigit-button">Перевірити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="getMaxDigit-result">0</span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      2) Створити функцію, яка визначає ступінь числа. Не використовуючи
+      Math.pow та **. Використовуйте цикл
+     </h3>
+     <input type="number" id="getPow-input-base" placeholder="Введіть число" />
+     <input
+      type="number"
+      id="getPow-input-exponent"
+      placeholder="Введіть число"
+     />
+     <button id="getPow-button">Перевірити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="getPow-result">0</span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      3) Створити функцію, яка форматує ім'я, роблячи першу букву великою.
+      ("влад" -> "Влад", "вЛАД" -> "Влад" і так далі);
+     </h3>
+     <input
+      type="text"
+      id="getFormatingName-input"
+      placeholder="Введіть ім'я"
+     />
+     <button id="getFormatingName-button">Перевірити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="getFormatingName-result">Вкажіть ім'я</span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      4) Створити функцію, яка вираховує суму, що залишається після оплати
+      податку від зарабітньої плати. (Податок = 18% + 1.5% -> 19.5%). Приклад:
+      1000 -> 805
+     </h3>
+     <input type="number" id="getSumm-input" placeholder="Введіть число" />
+     <button id="getSumm-button">Перевірити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="getSumm-result">0</span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      5) Створити функцію, яка повертає випадкове ціле число в діапазоні від N
+      до M. Приклад: getRandomNumber(1, 10) -> 5
+     </h3>
+     <input
+      type="number"
+      id="getRandomNumber-input-min"
+      placeholder="Введіть мін. число"
+     />
+     <input
+      type="number"
+      id="getRandomNumber-input-max"
+      placeholder="Введіть макс. число"
+     />
+     <button id="getRandomNumber-button">Перевірити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="getRandomNumber-result">0</span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      6) Створити функцію, яка рахує скільки разів певна буква повторюється в
+      слові. Приклад: countLetter("а", "Асталавіста") -> 4
+     </h3>
+     <input
+      type="text"
+      id="countLetter-input-string"
+      placeholder="Введіть літеру"
+     />
+     <input
+      type="text"
+      id="countLetter-input-word"
+      placeholder="Введіть слово"
+     />
+     <button id="countLetter-button">Перевірити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="countLetter-result">0</span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      7) Створіть функцію, яка конвертує долари в гривні та навпаки в залежності
+      від наявності символа $ або UAH в рядку. Приклад: convertCurrency("100$")
+      -> 2500 грн. або convertCurrency("2500UAH") -> 100$
+     </h3>
+     <input
+      type="text"
+      id="convertCurrency-input"
+      placeholder="Введіть валюту"
+     />
+     <button id="convertCurrency-button">Перевірити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="convertCurrency-result">0</span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      8) Врахуйте, інші валюти не конвертуються, потрібно виводити помилку, і
+      також регістр uah не має значення.
+     </h3>
+     <input
+      type="text"
+      id="convertCurrencyUpdated-input"
+      placeholder="Введіть валюту"
+     />
+     <button id="convertCurrencyUpdated-button">Перевірити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="convertCurrencyUpdated-result">0</span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      9) Створіть функцію генерації випадкового паролю (тільки числа), довжина
+      встановлюється користувачем або по замовчуванню = 8 символам. Приклад:
+      getRandomPassword(4) -> 1875, getRandomPassword() -> 87240124
+     </h3>
+     <input
+      type="number"
+      id="getRandomPassword-input"
+      placeholder="Введіть довжину"
+     />
+     <button id="getRandomPassword-button">Перевірити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="getRandomPassword-result">0</span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      10) Створіть функцію, яка видаляє всі букви з речення. Приклад:
+      deleteLetters('a', "blablabla") -> "blblbl"
+     </h3>
+     <input
+      type="text"
+      id="deleteLetters-input-string"
+      placeholder="Введіть літеру"
+     />
+     <input
+      type="text"
+      id="deleteLetters-input-word"
+      placeholder="Введіть слово"
+     />
+     <button id="deleteLetters-button">Перевірити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="deleteLetters-result">0</span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      11) Створіть функцію, яка перевіряє, чи є слово паліндромом. Приклад:
+      isPalyndrom("мадам") -> true, isPalyndrom("кокос") -> false,
+      isPalyndrom("Я несу гусеня") -> true
+     </h3>
+     <input type="text" id="isPalyndrom-input" placeholder="Введіть слово" />
+     <button id="isPalyndrom-button">Перевірити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="isPalyndrom-result">0</span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      12) Створіть функцію, яка видалить з речення букви, які зустрічаються
+      більше 1 разу. Приклад: deleteDuplicateLetter("Бісквіт був дуже ніжним")
+      -> "сктдеим"
+     </h3>
+     <input
+      type="text"
+      id="deleteDuplicateLetter-input"
+      placeholder="Введіть речення"
+     />
+     <button id="deleteDuplicateLetter-button">Перевірити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="deleteDuplicateLetter-result">0</span>
+     </div>
+    </li>
+   </ul>
   </div>
   <script src="./02-test-homework.js"></script>
-</body>
+ </body>
 </html>
