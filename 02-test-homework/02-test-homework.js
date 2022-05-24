@@ -189,6 +189,9 @@ const convertCurrency = (string) => {
  const isUAH = string.includes(currencyUAH);
  const is$ = string.includes(currency$);
  const number = parseInt(string);
+ if (isNaN(number)) {
+  return 'Дуже смішно, введіть число';
+ }
  if (isUAH) {
   return number / 25 + currency$;
  }
@@ -222,6 +225,9 @@ const convertCurrencyUpdated = (string) => {
  const isUAH = string.toLowerCase().includes(currencyUAH.toLocaleLowerCase());
  const is$ = string.includes(currency$);
  const number = parseInt(string);
+ if (isNaN(number)) {
+  return 'Дуже смішно, введіть число';
+ }
  let result = `Будь ласка, вкажiть ${currencyUAH} або ${currency$}`;
  if (isUAH) {
   result = number / 25 + currency$;
