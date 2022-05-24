@@ -147,7 +147,7 @@ getRandomNumberButtonEl.addEventListener(
 // Приклад: countLetter("а", "Асталавіста") -> 4
 
 const countLetter = (string, word) => {
- if (!isNaN(Number(string))) {
+ if (!isNaN(Number(string)) && string !== ' ') {
   return 'Ви ввели число';
  }
  let result = 0;
@@ -284,7 +284,7 @@ getRandomPasswordButtonEl.addEventListener(
 // Приклад: deleteLetters('a', "blablabla") -> "blblbl"
 
 const deleteLetters = (letter, string) => {
- if (!isNaN(Number(letter))) {
+ if (!isNaN(Number(letter)) && letter !== ' ') {
   return 'Ви ввели число';
  }
  let result = '';
@@ -345,7 +345,7 @@ isPalyndromButtonEl.addEventListener(
 // Приклад: deleteDuplicateLetter("Бісквіт був дуже ніжним") -> "сктдеим"
 
 const deleteDuplicateLetter = (string) => {
- if (!isNaN(Number(string))) {
+ if (!isNaN(Number(string)) && string !== ' ') {
   return 'Ви ввели число';
  }
  let result = '';
