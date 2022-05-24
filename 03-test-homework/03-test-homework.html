@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="./03-test-homework.css" />
+  <title>03-test-homework</title>
+ </head>
+ <body>
+  <div class="container">
+   <h1 class="home-title">03-test-homework</h1>
+   <a class="navigation-link" href="../index.html"> &#8666; To main</a>
+   <ol>
+    <h2>Массиви</h2>
+    <li>
+     <p>
+      const students = ['Олександр', 'Ігор', 'Олена', 'Іра', 'Олексій',
+      'Світлана'];
+     </p>
+    </li>
+    <li>
+     <p>
+      const themes = [ 'Диференційне рівняння', 'Теорія автоматів', 'Алгоритми і
+      структури даних', ];
+     </p>
+    </li>
+    <li><p>const marks = [4, 5, 5, 3, 4, 5];</p></li>
+   </ol>
+   <ul>
+    <li>
+     <h3 class="function-title">
+      1) Розділіть студентів на пари(хлопець + дівчина) для работи над проєктом.
+      У вас повинен вийти вкладений масив з парами студентів: [["Олександр",
+      "Олена"], [..], [...]];
+     </h3>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="getTeam-result">Щось не так</span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      2) Зіставте пари з попереднього завдання та теми проєктів, над якими
+      студенти будуть працювати. Повинен вийти вкладений масив виду:
+      [["Олександр і Олена", "Теорія автоматів"], [...], [...]]
+     </h3>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="getProject-result">Щось не так</span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      3) Зіставте оцінки(marks) зі студентом(students): [["Саша", 4], [...],
+      [...]]
+     </h3>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="getMarks-result">Щось не так</span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      4) Поставте кожній парі випадкову оцінку(від 1 до 5) за проєкт(тут функція
+      буде нечистою, але не повинна мутувати массив): [["Олександр і Олена",
+      "Теорія автоматів", 5], [...], [...]]
+     </h3>
+     <div>
+      <span>Результат:</span>
+      <span class="result" id="getTeamMarks-result">Щось не так</span>
+     </div>
+    </li>
+   </ul>
+  </div>
+  <script src="./03-test-homework.js"></script>
+ </body>
+</html>
