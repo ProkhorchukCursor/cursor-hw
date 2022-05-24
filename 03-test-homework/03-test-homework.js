@@ -26,11 +26,7 @@ const getTeam = (students) => {
  const guys = students.filter((stud) => {
   return stud[stud.length - 1] !== 'а';
  });
- const result = [];
- for (let i = 0; i < girls.length; i++) {
-  result.push([guys[i], girls[i]]);
- }
- return result;
+ return guys.map((guy, i) => [guy, girls[i]]);
 };
 
 const getTeamResultEl = document.querySelector('#getTeam-result');
@@ -41,12 +37,8 @@ getTeamResultEl.innerHTML = `<span>${JSON.stringify(getTeam(students))}</span>`;
 // Повинен вийти вкладений масив виду: [["Олександр і Олена", "Теорія автоматів"], [...], [...]]
 
 const getProject = (teams, projects) => {
- const result = [];
  const newTeam = teams.map((el) => el.join(' і '));
- for (let i = 0; i < newTeam.length; i++) {
-  result.push([newTeam[i], projects[i]]);
- }
- return result;
+ return newTeam.map((team, i) => [team, projects[i]]);
 };
 
 const getProjectResultEl = document.querySelector('#getProject-result');
@@ -77,3 +69,15 @@ const getTeamMarksResultEl = document.querySelector('#getTeamMarks-result');
 getTeamMarksResultEl.innerHTML = `<span>${JSON.stringify(
  getTeamMarks(getProject(getTeam(students), themes)),
 )}</span>`;
+
+// console.log
+
+const task1 = getTeam(students);
+const task2 = getProject(task1, themes);
+const task3 = getMarks(students, marks);
+const task4 = getTeamMarks(task2, themes);
+
+console.log('task1: ', task1);
+console.log('task2: ', task2);
+console.log('task3: ', task3);
+console.log('task4: ', task4);
