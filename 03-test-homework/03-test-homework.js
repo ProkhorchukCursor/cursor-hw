@@ -16,6 +16,13 @@ const themes = [
 
 const marks = [4, 5, 5, 3, 4, 5];
 
+// HTML-elements
+
+const getTeamResultEl = document.querySelector('#getTeam-result');
+const getProjectResultEl = document.querySelector('#getProject-result');
+const getMarksResultEl = document.querySelector('#getMarks-result');
+const getTeamMarksResultEl = document.querySelector('#getTeamMarks-result');
+
 // 1) Розділіть студентів на пари(хлопець + дівчина) для работи над проєктом.
 // У вас повинен вийти вкладений масив з парами студентів: [["Олександр", "Олена"], [..], [...]];
 
@@ -29,10 +36,6 @@ const getTeam = (students) => {
  return guys.map((guy, i) => [guy, girls[i]]);
 };
 
-const getTeamResultEl = document.querySelector('#getTeam-result');
-
-getTeamResultEl.innerHTML = `<span>${JSON.stringify(getTeam(students))}</span>`;
-
 // 2) Зіставте пари з попереднього завдання та теми проєктів, над якими студенти будуть працювати.
 // Повинен вийти вкладений масив виду: [["Олександр і Олена", "Теорія автоматів"], [...], [...]]
 
@@ -41,22 +44,10 @@ const getProject = (teams, projects) => {
  return newTeam.map((team, i) => [team, projects[i]]);
 };
 
-const getProjectResultEl = document.querySelector('#getProject-result');
-
-getProjectResultEl.innerHTML = `<span>${JSON.stringify(
- getProject(getTeam(students), themes),
-)}</span>`;
-
 // 3) Зіставте оцінки(marks) зі студентом(students): [["Саша", 4], [...], [...]]
 
 const getMarks = (students, marks) =>
  students.map((stud, i) => [stud, marks[i]]);
-
-const getMarksResultEl = document.querySelector('#getMarks-result');
-
-getMarksResultEl.innerHTML = `<span>${JSON.stringify(
- getMarks(students, marks),
-)}</span>`;
 
 // 4) Поставте кожній парі випадкову оцінку(від 1 до 5) за проєкт(тут функція буде нечистою, але не повинна мутувати массив):
 // [["Олександр і Олена", "Теорія автоматів", 5], [...], [...]]
@@ -64,20 +55,23 @@ getMarksResultEl.innerHTML = `<span>${JSON.stringify(
 const getTeamMarks = (teams) =>
  teams.map((team) => [...team, Math.ceil(Math.random() * 5)]);
 
-const getTeamMarksResultEl = document.querySelector('#getTeamMarks-result');
-
-getTeamMarksResultEl.innerHTML = `<span>${JSON.stringify(
- getTeamMarks(getProject(getTeam(students), themes)),
-)}</span>`;
-
 // console.log
 
-const task1 = getTeam(students);
-const task2 = getProject(task1, themes);
-const task3 = getMarks(students, marks);
-const task4 = getTeamMarks(task2, themes);
+const team = getTeam(students);
+const projects = getProject(team, themes);
+const arrayWithMarks = getMarks(students, marks);
+const teamWithMarks = getTeamMarks(projects, themes);
 
-console.log('task1: ', task1);
-console.log('task2: ', task2);
-console.log('task3: ', task3);
-console.log('task4: ', task4);
+console.log('task1: ', team);
+console.log('task2: ', projects);
+console.log('task3: ', arrayWithMarks);
+console.log('task4: ', teamWithMarks);
+
+// innerHTML
+
+getTeamResultEl.innerHTML = `<span>${JSON.stringify(team)}</span>`;
+getProjectResultEl.innerHTML = `<span>${JSON.stringify(projects)}</span>`;
+getMarksResultEl.innerHTML = `<span>${JSON.stringify(arrayWithMarks)}</span>`;
+getTeamMarksResultEl.innerHTML = `<span>${JSON.stringify(
+ teamWithMarks,
+)}</span>`;
