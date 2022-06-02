@@ -1,5 +1,15 @@
 // У цьому домашньому завданні вам необхідно зробити мінімум 6 функцій (на вибір)
 
+// Constants
+
+// 1)
+
+const RANDOM_ARRAY_ARGS = ['довжинa', 'мінімальне число', 'максимальне число'];
+
+// 8)
+
+const BAD_WORDS = ['shit', 'fuck'];
+
 // HTML-elements
 
 // 1)
@@ -87,6 +97,11 @@ const replaceBadWordsInputResultEl = document.querySelector(
 const replaceBadWordsResultEl = document.querySelector(
  '#replaceBadWords-result',
 );
+const replaceBadWordsListEl = document.querySelector(
+ '#replaceBadWords-words-list',
+);
+
+replaceBadWordsListEl.textContent = BAD_WORDS;
 
 // 9)
 
@@ -218,8 +233,6 @@ generateCombinationsButtonEl.addEventListener(
 // max – максимальне значення цілого числа.
 // Приклад: getRandomArray(15, 1, 100) –> [6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2]
 
-const RANDOM_ARRAY_ARGS = ['довжинa', 'мінімальне число', 'максимальне число'];
-
 const getValidateArgs = (args, response) => {
  const result = [];
  args.forEach((argument, i) => {
@@ -233,7 +246,7 @@ const getValidateArgs = (args, response) => {
 const getRandomArray = (length, min, max) => {
  const isInvalid = getValidateArgs([length, min, max], RANDOM_ARRAY_ARGS);
  if (isInvalid) return isInvalid;
- if (min > max) return 'Максимальне число має бути більше за мінімальне число';
+ if (min >= max) return 'Максимальне число має бути більше за мінімальне число';
  const newArray = [];
  for (let index = 0; index < length; index++) {
   newArray.push(Math.round(Math.random() * (max - min) + min));
@@ -248,22 +261,28 @@ const getRandomArray = (length, min, max) => {
 const getNumber = (value) => {
  const array = value.split(',');
  const numbers = array.map((el) => {
-  if (Number(el) % 1 !== 0 || isNaN(Number(el))) return;
-  return Number(el);
+  const num = Number(el);
+  if (num % 1 !== 0 || isNaN(num)) return;
+  return num;
  });
  return numbers;
 };
 
 const getModa = (numbers) => {
- let result = 0;
+ let result = [];
  let maxLength = 0;
  numbers.forEach((num) => {
-  if (numbers.filter((el) => el === num).length > maxLength) {
-   maxLength = numbers.filter((el) => el === num).length;
-   result = num;
+  const numbersLength = numbers.filter((el) => el === num).length;
+  if (numbersLength > maxLength) {
+   maxLength = numbersLength;
+   result = [num];
+  }
+  if (numbersLength === maxLength) {
+   result.push(num);
   }
  });
- return result;
+ result = new Set(result);
+ return JSON.stringify([...result]);
 };
 
 // 3) Створіть функцію getAverage(...numbers) – яка рахує середнє арифметичне всіх переданих в неї аргументів.
@@ -315,8 +334,6 @@ const getDividedByFive = (numbers) =>
 // Приклад: replaceBadWords("Holy shit!") -> "Holy ****!"
 // Приклад: replaceBadWords("It's bullshit!") -> "It's bull****!"
 
-const BAD_WORDS = ['shit', 'fuck'];
-
 const replaceBadWord = (word) => {
  const isBadWord = BAD_WORDS.filter((el) => word.includes(el));
  if (!isBadWord.length) return word;
@@ -329,7 +346,10 @@ const replaceBadWords = (string) => {
  return array.join(' ');
 };
 
-const addBadWord = (word) => BAD_WORDS.push(word);
+const addBadWord = (word) => {
+ if (!BAD_WORDS.includes(word)) BAD_WORDS.push(word);
+ replaceBadWordsListEl.textContent = BAD_WORDS;
+};
 
 // 9) Створіть функцію divideByThree(word), яка розбиває кожне слово на умовні склади по 3 букви.
 // Якщо букв менше трьох – не розбиває.Пробіли завжди видаляються.Рядок приводится до нижнього регістру.
