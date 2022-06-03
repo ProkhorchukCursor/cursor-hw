@@ -334,22 +334,22 @@ const getDividedByFive = (numbers) =>
 // Приклад: replaceBadWords("Holy shit!") -> "Holy ****!"
 // Приклад: replaceBadWords("It's bullshit!") -> "It's bull****!"
 
-const replaceBadWord = (word) => {
- const isBadWord = BAD_WORDS.filter((el) => word.includes(el));
+const replaceBadLetter = (word) => {
+ const isBadWord = BAD_WORDS.filter((el) => word.toLowerCase().includes(el));
  if (!isBadWord.length) return word;
  word = word.replace(isBadWord, '****');
- const result = replaceBadWord(word);
+ const result = replaceBadLetter(word);
  return result;
 };
 
 const replaceBadWords = (string) => {
  if (!string) return 'Ще не ввели';
- const array = string.split(' ').map((el) => replaceBadWord(el));
+ const array = string.split(' ').map((el) => replaceBadLetter(el));
  return array.join(' ');
 };
 
 const addBadWord = (word) => {
- if (!BAD_WORDS.includes(word)) BAD_WORDS.push(word);
+ if (!BAD_WORDS.includes(word)) BAD_WORDS.push(word.toLowerCase());
  replaceBadWordsListEl.textContent = BAD_WORDS;
 };
 
