@@ -324,7 +324,7 @@ const countPositiveNumbers = (numbers) =>
 // Приклад: getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) -> [55, 55]
 
 const getDividedByFive = (numbers) =>
- JSON.stringify(numbers.filter((num) => num % 5 === 0));
+ JSON.stringify(numbers.filter((num) => num % 5 === 0 && num !== 0));
 
 // 8) Створіть функцію replaceBadWords(string) – яка 1) розіб'є фразу на слова, 2) замінить погані слова на зірочки (*).
 // При вирішенні цього завдання необхідно розбити масив на слова за допомогою функції.split(" "),
@@ -337,7 +337,9 @@ const getDividedByFive = (numbers) =>
 const replaceBadWord = (word) => {
  const isBadWord = BAD_WORDS.filter((el) => word.includes(el));
  if (!isBadWord.length) return word;
- return word.replace(isBadWord, '****');
+ word = word.replace(isBadWord, '****');
+ const result = replaceBadWord(word);
+ return result;
 };
 
 const replaceBadWords = (string) => {
