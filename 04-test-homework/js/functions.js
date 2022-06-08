@@ -1,239 +1,19 @@
-// У цьому домашньому завданні вам необхідно зробити мінімум 6 функцій (на вибір)
-
 // Constants
 
-// 1)
-
-const RANDOM_ARRAY_ARGS = ['довжинa', 'мінімальне число', 'максимальне число'];
-
-// 8)
-
-const BAD_WORDS = ['shit', 'fuck'];
+import { RANDOM_ARRAY_ARGS, BAD_WORDS } from './constants.js';
 
 // HTML-elements
 
-// 1)
+import { replaceBadWordsListEl } from './elements.js';
 
-const getRandomArrayButtonEl = document.querySelector('#getRandomArray-button');
-const getRandomArrayInputLengthEl = document.querySelector(
- '#getRandomArray-input-length',
-);
-const getRandomArrayInputMinEl = document.querySelector(
- '#getRandomArray-input-min',
-);
-const getRandomArrayInputMaxEl = document.querySelector(
- '#getRandomArray-input-max',
-);
-const getRandomArrayResultEl = document.querySelector('#getRandomArray-result');
-
-// 2)
-
-const getModaButtonEl = document.querySelector('#getModa-button');
-const getModaInputEl = document.querySelector('#getModa-input');
-const getModaResultEl = document.querySelector('#getModa-result');
-
-// 3)
-
-const getAverageButtonEl = document.querySelector('#getAverage-button');
-const getAverageInputEl = document.querySelector('#getAverage-input');
-const getAverageResultEl = document.querySelector('#getAverage-result');
-
-// 4)
-
-const getMedianButtonEl = document.querySelector('#getMedian-button');
-const getMedianInputEl = document.querySelector('#getMedian-input');
-const getMedianResultEl = document.querySelector('#getMedian-result');
-
-// 5)
-
-const filterEvenNumbersButtonEl = document.querySelector(
- '#filterEvenNumbers-button',
-);
-const filterEvenNumbersInputEl = document.querySelector(
- '#filterEvenNumbers-input',
-);
-const filterEvenNumbersResultEl = document.querySelector(
- '#filterEvenNumbers-result',
-);
-
-// 6)
-
-const countPositiveNumbersButtonEl = document.querySelector(
- '#countPositiveNumbers-button',
-);
-const countPositiveNumbersInputEl = document.querySelector(
- '#countPositiveNumbers-input',
-);
-const countPositiveNumbersResultEl = document.querySelector(
- '#countPositiveNumbers-result',
-);
-
-// 7)
-
-const getDividedByFiveButtonEl = document.querySelector(
- '#getDividedByFive-button',
-);
-const getDividedByFiveInputEl = document.querySelector(
- '#getDividedByFive-input',
-);
-const getDividedByFiveResultEl = document.querySelector(
- '#getDividedByFive-result',
-);
-
-// 8)
-
-const replaceBadWordsButtonDictionaryEl = document.querySelector(
- '#replaceBadWords-button-dictionary',
-);
-const replaceBadWordsButtonResultEl = document.querySelector(
- '#replaceBadWords-button-result',
-);
-const replaceBadWordsInputDictionaryEl = document.querySelector(
- '#replaceBadWords-input-dictionary',
-);
-const replaceBadWordsInputResultEl = document.querySelector(
- '#replaceBadWords-input-result',
-);
-const replaceBadWordsResultEl = document.querySelector(
- '#replaceBadWords-result',
-);
-const replaceBadWordsListEl = document.querySelector(
- '#replaceBadWords-words-list',
-);
-
-replaceBadWordsListEl.textContent = BAD_WORDS;
-
-// 9)
-
-const divideByThreeButtonEl = document.querySelector('#divideByThree-button');
-const divideByThreeInputEl = document.querySelector('#divideByThree-input');
-const divideByThreeResultEl = document.querySelector('#divideByThree-result');
-
-// 10)
-
-const generateCombinationsButtonEl = document.querySelector(
- '#generateCombinations-button',
-);
-const generateCombinationsInputEl = document.querySelector(
- '#generateCombinations-input',
-);
-const generateCombinationsResultEl = document.querySelector(
- '#generateCombinations-result',
-);
-
-// EventListeners
-
-// 1)
-
-getRandomArrayButtonEl.addEventListener(
- 'click',
- () =>
-  (getRandomArrayResultEl.textContent = getRandomArray(
-   Number(getRandomArrayInputLengthEl.value),
-   Number(getRandomArrayInputMinEl.value),
-   Number(getRandomArrayInputMaxEl.value),
-  )),
-);
-
-// 2)
-
-getModaButtonEl.addEventListener(
- 'click',
- () => (getModaResultEl.textContent = getModa(getNumber(getModaInputEl.value))),
-);
-
-// 3)
-
-getAverageButtonEl.addEventListener(
- 'click',
- () =>
-  (getAverageResultEl.textContent = getAverage(
-   getNumber(getAverageInputEl.value),
-  )),
-);
-
-// 4)
-
-getMedianButtonEl.addEventListener(
- 'click',
- () =>
-  (getMedianResultEl.textContent = getMedian(
-   getNumber(getMedianInputEl.value),
-  )),
-);
-
-// 5)
-
-filterEvenNumbersButtonEl.addEventListener(
- 'click',
- () =>
-  (filterEvenNumbersResultEl.textContent = filterEvenNumbers(
-   getNumber(filterEvenNumbersInputEl.value),
-  )),
-);
-
-// 6)
-
-countPositiveNumbersButtonEl.addEventListener(
- 'click',
- () =>
-  (countPositiveNumbersResultEl.textContent = countPositiveNumbers(
-   getNumber(countPositiveNumbersInputEl.value),
-  )),
-);
-
-// 7)
-
-getDividedByFiveButtonEl.addEventListener(
- 'click',
- () =>
-  (getDividedByFiveResultEl.textContent = getDividedByFive(
-   getNumber(getDividedByFiveInputEl.value),
-  )),
-);
-
-// 8)
-
-replaceBadWordsButtonResultEl.addEventListener(
- 'click',
- () =>
-  (replaceBadWordsResultEl.textContent = replaceBadWords(
-   replaceBadWordsInputResultEl.value,
-  )),
-);
-
-replaceBadWordsButtonDictionaryEl.addEventListener('click', () =>
- addBadWord(replaceBadWordsInputDictionaryEl.value),
-);
-
-// 9)
-
-divideByThreeButtonEl.addEventListener(
- 'click',
- () =>
-  (divideByThreeResultEl.textContent = divideByThree(
-   divideByThreeInputEl.value,
-  )),
-);
-
-// 9)
-
-generateCombinationsButtonEl.addEventListener(
- 'click',
- () =>
-  (generateCombinationsResultEl.textContent = generateCombinations(
-   generateCombinationsInputEl.value,
-  )),
-);
-
-// Tasks
+// Functions
 
 // 1) Створіть функцію getRandomArray(length, min, max) – яка повертає масив випадкових цілих чисел.
 // У функції є параметри: length - довжина масиву, min – мінімальне значення цілого числа,
 // max – максимальне значення цілого числа.
 // Приклад: getRandomArray(15, 1, 100) –> [6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2]
 
-const getValidateArgs = (args, response) => {
+export const getValidateArgs = (args, response) => {
  const result = [];
  args.forEach((argument, i) => {
   if (!argument || argument < 0 || argument % 1 !== 0) result.push(response[i]);
@@ -243,7 +23,7 @@ const getValidateArgs = (args, response) => {
  }
 };
 
-const getRandomArray = (length, min, max) => {
+export const getRandomArray = (length, min, max) => {
  const isInvalid = getValidateArgs([length, min, max], RANDOM_ARRAY_ARGS);
  if (isInvalid) return isInvalid;
  if (min >= max) return 'Максимальне число має бути більше за мінімальне число';
@@ -258,15 +38,15 @@ const getRandomArray = (length, min, max) => {
 // НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ
 // Приклад: getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 2
 
-const getNumber = (value) => {
+export const getNumber = (value) => {
  const array = value.split(',');
  const numbers = array
-  .filter((num) => (num % 1 === 0 || !isNaN(Number(num))) && num.trim() !== '')
+  .filter((num) => num % 1 === 0 && !isNaN(Number(num)) && num.trim() !== '')
   .map((el) => Number(el));
  return numbers;
 };
 
-const getModa = (numbers) => {
+export const getModa = (numbers) => {
  let result = [];
  let maxLength = 0;
  numbers.forEach((num) => {
@@ -287,7 +67,8 @@ const getModa = (numbers) => {
 // НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ
 // Приклад: getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 34.4
 
-const getAverage = (numbers) => {
+export const getAverage = (numbers) => {
+ if (!numbers.length) return 'Введіть ціле число';
  const summ = numbers.reduce((acc, value) => acc + value, 0);
  return summ / numbers.length;
 };
@@ -297,7 +78,8 @@ const getAverage = (numbers) => {
 // Приклад: getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 23
 // Приклад: getMedian(1, 2, 3, 4) –> 2.5 Приклад: getMedian(1, 2, 3, 4, 5) –> 3
 
-const getMedian = (numbers) => {
+export const getMedian = (numbers) => {
+ if (!numbers.length) return 'Введіть ціле число';
  const numbersSorted = numbers.sort((a, b) => a - b);
  const medianIndex = Math.floor(numbersSorted.length / 2);
  if (numbersSorted.length % 2 === 0)
@@ -308,20 +90,20 @@ const getMedian = (numbers) => {
 // 5) Створіть функцію filterEvenNumbers(...numbers) – яка фільтрує парні числа передані як аргументи функції
 // Приклад: filterEvenNumbers(1, 2, 3, 4, 5, 6) -> [1, 3, 5]
 
-const filterEvenNumbers = (numbers) =>
+export const filterEvenNumbers = (numbers) =>
  JSON.stringify(numbers.filter((num) => num % 2 !== 0));
 
 // 6) Створіть функцію countPositiveNumbers(...numbers) – яка порахує кількість чисел більших 0
 // Приклад: countPositiveNumbers(1, -2, 3, -4, -5, 6) -> 3
 
-const countPositiveNumbers = (numbers) =>
+export const countPositiveNumbers = (numbers) =>
  numbers.filter((num) => num > 0).length;
 
 // 7) Створіть функцію getDividedByFive(...numbers) – яка відфільтрує усі елементи в масиві та залишить тільки ті,
 // які діляться на ціло на 5
 // Приклад: getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) -> [55, 55]
 
-const getDividedByFive = (numbers) =>
+export const getDividedByFive = (numbers) =>
  JSON.stringify(numbers.filter((num) => num % 5 === 0 && num !== 0));
 
 // 8) Створіть функцію replaceBadWords(string) – яка 1) розіб'є фразу на слова, 2) замінить погані слова на зірочки (*).
@@ -332,7 +114,7 @@ const getDividedByFive = (numbers) =>
 // Приклад: replaceBadWords("Holy shit!") -> "Holy ****!"
 // Приклад: replaceBadWords("It's bullshit!") -> "It's bull****!"
 
-const replaceBadLetter = (word) => {
+export const replaceBadLetter = (word) => {
  const wordToLower = word.toLowerCase();
  const isBadWord = BAD_WORDS.filter((el) => wordToLower.includes(el));
  if (!isBadWord.length) return word;
@@ -349,13 +131,13 @@ const replaceBadLetter = (word) => {
  return result;
 };
 
-const replaceBadWords = (string) => {
+export const replaceBadWords = (string) => {
  if (!string) return 'Ще не ввели';
  const array = string.split(' ').map((el) => replaceBadLetter(el));
  return array.join(' ');
 };
 
-const addBadWord = (word) => {
+export const addBadWord = (word) => {
  if (!BAD_WORDS.includes(word)) BAD_WORDS.push(word.toLowerCase());
  replaceBadWordsListEl.textContent = BAD_WORDS;
 };
@@ -365,7 +147,7 @@ const addBadWord = (word) => {
 // Приклад: divideByThree("Commander") -> ["com", "man", "der"]
 // Приклад: divideByThree("live") -> ["liv", "e"]
 
-const divideByThree = (word) => {
+export const divideByThree = (word) => {
  if (!word) return 'Ще не ввели';
  if (word.length < 3) return word.toLowerCase();
  const result = [];
@@ -386,7 +168,7 @@ const divideByThree = (word) => {
 // Приклад: generateCombinations("man") -> ["man", "mna", "amn", "anm", "nam", "nma"]
 // Приклад: generateCombinations("ol") -> ["ol", "lo"]
 
-const generateCombinations = (word) => {
+export const generateCombinations = (word) => {
  let result = [];
  if (!word) return ['Ще не ввели'];
  if (word.length > 10) return 'Обмеження 10 букв';
