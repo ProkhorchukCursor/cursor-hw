@@ -260,11 +260,9 @@ const getRandomArray = (length, min, max) => {
 
 const getNumber = (value) => {
  const array = value.split(',');
- const numbers = array.map((el) => {
-  const num = Number(el);
-  if (num % 1 !== 0 || isNaN(num)) return;
-  return num;
- });
+ const numbers = array
+  .filter((num) => (num % 1 === 0 || !isNaN(Number(num))) && num.trim() !== '')
+  .map((el) => Number(el));
  return numbers;
 };
 
@@ -335,10 +333,19 @@ const getDividedByFive = (numbers) =>
 // Приклад: replaceBadWords("It's bullshit!") -> "It's bull****!"
 
 const replaceBadLetter = (word) => {
- const isBadWord = BAD_WORDS.filter((el) => word.toLowerCase().includes(el));
+ const wordToLower = word.toLowerCase();
+ const isBadWord = BAD_WORDS.filter((el) => wordToLower.includes(el));
  if (!isBadWord.length) return word;
- word = word.replace(isBadWord, '****');
- const result = replaceBadLetter(word);
+ const wordReplaced = wordToLower.replace(isBadWord, '****');
+ const wordRecursed = replaceBadLetter(wordReplaced);
+ let result = '';
+ for (let i = 0; i < word.length; i++) {
+  if (word[i] !== wordRecursed[i]) {
+   result += wordRecursed[i].toUpperCase();
+  } else {
+   result += word[i];
+  }
+ }
  return result;
 };
 
