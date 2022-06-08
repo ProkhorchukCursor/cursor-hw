@@ -1,134 +1,6 @@
 // Main array
 
-const students = [
- {
-  name: 'Tanya',
-  course: 3,
-  subjects: {
-   math: [4, 4, 3, 4],
-   algorithms: [3, 3, 3, 4, 4, 4],
-   data_science: [5, 5, 3, 4],
-  },
- },
- {
-  name: 'Victor',
-  course: 4,
-  subjects: {
-   physics: [5, 5, 5, 3],
-   economics: [2, 3, 3, 3, 3, 5],
-   geometry: [5, 5, 2, 3, 5],
-  },
- },
- {
-  name: 'Anton',
-  course: 2,
-  subjects: {
-   statistics: [4, 5, 5, 5, 5, 3, 4, 3, 4, 5],
-   english: [5, 3],
-   cosmology: [5, 5, 5, 5],
-  },
- },
-];
-
-// HTML-elements
-
-// 1)
-
-const getSubjectsButtonEl = document.querySelector('#getSubjects-button');
-const getSubjectsInputEl = document.querySelector('#getSubjects-input');
-const getSubjectsResultEl = document.querySelector('#getSubjects-result');
-
-// 2)
-
-const getAverageMarkButtonEl = document.querySelector('#getAverageMark-button');
-const getAverageMarkInputEl = document.querySelector('#getAverageMark-input');
-const getAverageMarkResultEl = document.querySelector('#getAverageMark-result');
-
-// 3)
-
-const getStudentInfoButtonEl = document.querySelector('#getStudentInfo-button');
-const getStudentInfoInputEl = document.querySelector('#getStudentInfo-input');
-const getStudentInfoResultEl = document.querySelector('#getStudentInfo-result');
-
-// 4)
-
-const getStudentsNamesButtonEl = document.querySelector(
- '#getStudentsNames-button',
-);
-const getStudentsNamesResultEl = document.querySelector(
- '#getStudentsNames-result',
-);
-
-// 5)
-
-const getBestStudentButtonEl = document.querySelector('#getBestStudent-button');
-const getBestStudentResultEl = document.querySelector('#getBestStudent-result');
-
-// 6)
-
-const calculateWordLettersButtonEl = document.querySelector(
- '#calculateWordLetters-button',
-);
-const calculateWordLettersInputEl = document.querySelector(
- '#calculateWordLetters-input',
-);
-const calculateWordLettersResultEl = document.querySelector(
- '#calculateWordLetters-result',
-);
-
-// EventListeners
-
-// 1)
-
-getSubjectsButtonEl.addEventListener(
- 'click',
- () =>
-  (getSubjectsResultEl.textContent = getSubjects(getSubjectsInputEl.value)),
-);
-
-// 2)
-
-getAverageMarkButtonEl.addEventListener(
- 'click',
- () =>
-  (getAverageMarkResultEl.textContent = getAverageMark(
-   getAverageMarkInputEl.value,
-  )),
-);
-
-// 3)
-
-getStudentInfoButtonEl.addEventListener(
- 'click',
- () =>
-  (getStudentInfoResultEl.textContent = getStudentInfo(
-   getStudentInfoInputEl.value,
-  )),
-);
-
-// 4)
-
-getStudentsNamesButtonEl.addEventListener(
- 'click',
- () => (getStudentsNamesResultEl.textContent = getStudentsNames(students)),
-);
-
-// 5)
-
-getBestStudentButtonEl.addEventListener(
- 'click',
- () => (getBestStudentResultEl.textContent = getBestStudent(students)),
-);
-
-// 6)
-
-calculateWordLettersButtonEl.addEventListener(
- 'click',
- () =>
-  (calculateWordLettersResultEl.textContent = calculateWordLetters(
-   calculateWordLettersInputEl.value,
-  )),
-);
+import { students } from './students.js';
 
 // Tasks
 
@@ -144,7 +16,7 @@ const findStudent = (name) => {
  return student;
 };
 
-const getSubjects = (name) => {
+export const getSubjects = (name) => {
  if (!findStudent(name)) return 'Не знайдено';
  const { subjects } = findStudent(name);
  const titles = Object.keys(subjects).map((title) => {
@@ -163,7 +35,7 @@ const getAverage = (numbers) => {
  return summ / numbers.length;
 };
 
-const getAverageMark = (name) => {
+export const getAverageMark = (name) => {
  if (!findStudent(name)) return 'Не знайдено';
  const { subjects } = findStudent(name);
  const marks = Object.values(subjects).reduce(
@@ -176,7 +48,7 @@ const getAverageMark = (name) => {
 // – яка повертає інформацію загального виду по переданому студенту(вам знадобиться функція з попереднього завдання).
 // Пoвинна бути виведена інформація: курс, ім'я, середня оцінка.
 
-const getStudentInfo = (student) => {
+export const getStudentInfo = (student) => {
  if (!findStudent(student)) return 'Не знайдено';
  const { course, name } = findStudent(student);
  const info = {
@@ -190,14 +62,14 @@ const getStudentInfo = (student) => {
 // 4) Створіть функцію getStudentsNames(students) --> ["Anton", "Tanya, "Victor"]
 // – яка повертає імена студентів у алфавітному порядку.
 
-const getStudentsNames = (students) => {
+export const getStudentsNames = (students) => {
  return JSON.stringify(students.map((student) => student.name).sort());
 };
 
 // 5) Створіть функцію getBestStudent(students) --> "Anton"
 // – яка повертає кращого студента зі списку по показнику середньої оцінки.
 
-const getBestStudent = (students) => {
+export const getBestStudent = (students) => {
  const result = [];
 
  const studentsInfo = students
@@ -216,13 +88,13 @@ const getBestStudent = (students) => {
 // 6) Створіть функцію calculateWordLetters("тест") --> { "т": 2, "е": 1, "с": 1 }
 // – яка повертає обє'кт, в якому ключі це букви у слові, а значення – кількість їх повторень.
 
-const calculateWordLetters = (word) => {
+export const calculateWordLetters = (word) => {
  if (!word) return 'Не ввели';
  const array = word.split('');
  let result = {};
  for (let i = 0; i < word.length; i++) {
   const letter = word[i];
-  const number = array.filter((let) => let === letter).length;
+  const number = array.filter((lett) => lett === letter).length;
   const obj = { [letter]: number };
   result = { ...result, ...obj };
  }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="./06-test-homework.css" />
+  <title>05-test-homework</title>
+ </head>
+
+ <body>
+  <div class="container">
+   <h1 class="home-title">05-test-homework</h1>
+   <a class="navigation-link" href="../index.html"> &#8666; To main</a>
+   <h2>Початкові країни:</h2>
+   <pre>
+        const ukraine = { tax: 0.195, middleSalary: 1789, vacancies: 11476 };
+
+        const latvia = { tax: 0.25, middleSalary: 1586, vacancies: 3921 };
+
+        const litva = { tax: 0.15, middleSalary: 1509, vacancies: 1114 };
+    </pre
+   >
+   <h2>Задачі</h2>
+   <ul>
+    <li>
+     <h3 class="getMyTaxes-title">
+      1) Створіть функцію getMyTaxes.call(country, salary) -> number; – яка
+      рахує скільки податків ви заплатите як IT - спеціаліст в якійсь з країн.
+      Функція повинна викликатись через call та працювати з даними через this
+     </h3>
+     <div class="input-container">
+      <div>
+       <label for="getMyTaxes-input-country">Введіть країну</label>
+       <input
+        type="text"
+        id="getMyTaxes-input-country"
+        placeholder="Введіть країну"
+       />
+      </div>
+      <div>
+       <label for="getMyTaxes-input-salary">Введіть зарплатню</label>
+       <input
+        type="number"
+        id="getMyTaxes-input-salary"
+        placeholder="Введіть зарплатню"
+       />
+       <span>$</span>
+      </div>
+     </div>
+     <button id="getMyTaxes-button">Перевірити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="getMyTaxes-result">0</span>
+     </div>
+    </li>
+   </ul>
+  </div>
+  <script src="./06-test-homework.js"></script>
+ </body>
+</html>
