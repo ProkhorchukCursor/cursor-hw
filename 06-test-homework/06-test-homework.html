@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../style.css" />
-  <link rel="stylesheet" href="./06-test-homework.css" />
+  <link rel="stylesheet" href="./styles/06-test-homework.css" />
   <title>05-test-homework</title>
  </head>
 
@@ -25,7 +25,7 @@
    <h2>Задачі</h2>
    <ul>
     <li>
-     <h3 class="getMyTaxes-title">
+     <h3 class="function-title">
       1) Створіть функцію getMyTaxes.call(country, salary) -> number; – яка
       рахує скільки податків ви заплатите як IT - спеціаліст в якійсь з країн.
       Функція повинна викликатись через call та працювати з даними через this
@@ -40,7 +40,7 @@
        />
       </div>
       <div>
-       <label for="getMyTaxes-input-salary">Введіть зарплатню</label>
+       <label for="function-input-salary">Введіть зарплатню</label>
        <input
         type="number"
         id="getMyTaxes-input-salary"
@@ -52,11 +52,77 @@
      <button id="getMyTaxes-button">Перевірити</button>
      <div class="result-container">
       <span>Результат:</span>
-      <span class="result" id="getMyTaxes-result">0</span>
+      <span class="result" id="getMyTaxes-result">0$</span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      2) Створіть функцію getMiddleTaxes.call(country) -> number; – яка рахує
+      скільки у середньому податків платять IT - спеціалісти у кожній країні.
+      (tax * middleSalary). Функція повинна викликатись через call та працювати
+      з даними через this
+     </h3>
+     <div class="input-container">
+      <div>
+       <label for="getMiddleTaxes-input">Введіть країну</label>
+       <input
+        type="text"
+        id="getMiddleTaxes-input"
+        placeholder="Введіть країну"
+       />
+      </div>
+     </div>
+     <button id="getMiddleTaxes-button">Перевірити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="getMiddleTaxes-result">0$</span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      3) Створіть функцію getTotalTaxes.call(country) -> number; – яка рахує,
+      скільки всього податків платять IT - спеціалісти у кожній країні. (tax *
+      middleSalary * vacancies). Функція повинна викликатись через call та
+      працювати з даними через this
+     </h3>
+     <div class="input-container">
+      <div>
+       <label for="getTotalTaxes-input">Введіть країну</label>
+       <input
+        type="text"
+        id="getTotalTaxes-input"
+        placeholder="Введіть країну"
+       />
+      </div>
+     </div>
+     <button id="getTotalTaxes-button">Перевірити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="getTotalTaxes-result">0$</span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      4) Створіть функцію getMySalary(country) – яка буде писати в консоль
+      об'єкт виду: { salary: number, taxes: number, profit: number } кожні 10
+      секунд. Значення salary – генеруйте випадковим чином у діапазоні 1500 -
+      2000. taxes – розраховується в залежності від вибраної країни та значення
+      salary. profit = salary - taxes
+     </h3>
+     <div class="input-container">
+      <div>
+       <label for="getMySalary-input">Введіть країну</label>
+       <input type="text" id="getMySalary-input" placeholder="Введіть країну" />
+      </div>
+     </div>
+     <button id="getMySalary-button" class="js-stop">Перевірити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="getMySalary-result">{}</span>
      </div>
     </li>
    </ul>
   </div>
-  <script src="./06-test-homework.js"></script>
+  <script type="module" src="./js/index.js"></script>
  </body>
 </html>
