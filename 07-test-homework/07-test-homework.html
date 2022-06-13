@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="./styles/07-test-homework.css" />
+  <title>07-test-homework</title>
+ </head>
+
+ <body>
+  <div class="container">
+   <h1 class="home-title">05-test-homework</h1>
+   <a class="navigation-link" href="../index.html"> &#8666; To main</a>
+   <h2>
+    У цьому завданні вам необхідно створити клас Student та розробляти методи
+    всередині цього класу.
+   </h2>
+   <div class="result-container">
+    <span>База студентів:</span>
+    <span class="result">[</span>
+    <span class="result" id="students-base-result"></span>
+    <span class="result">]</span>
+   </div>
+   <h2>Задачі</h2>
+   <ul>
+    <li>
+     <h3 class="function-title">
+      1) У студентів повинні бути наступні властивості: university, course,
+      fullName, вони передаються при створенні студента(в конструктор).
+     </h3>
+     <div class="input-container">
+      <div>
+       <label for="Student-input-country">Введіть university</label>
+       <input
+        type="text"
+        id="Student-input-university"
+        placeholder="Введіть university"
+       />
+      </div>
+      <div>
+       <label for="Student-input-course">Введіть course</label>
+       <input
+        type="number"
+        id="Student-input-course"
+        placeholder="Введіть course"
+       />
+      </div>
+      <div>
+       <label for="Student-input-fullName">Введіть fullName</label>
+       <input
+        type="text"
+        id="Student-input-fullName"
+        placeholder="Введіть fullName"
+       />
+      </div>
+     </div>
+     <button id="Student-constructor-button">Підтвердити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="Student-constructor-result">{}</span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      2) Створіть метод this.getInfo() -> "Студент 1го курсу Вищої Школи
+      Психотерапії м.Одеса, Остап Родоманський Бендер", метод повертає сукупну
+      інформацію про курс, учбовий заклад та імені студента.
+     </h3>
+     <div class="input-container">
+      <div>
+       <label for="getInfo-input">Введіть ім'я</label>
+       <input type="text" id="getInfo-input" placeholder="Введіть ім'я" />
+      </div>
+     </div>
+     <button id="getInfo-button">Перевірити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="getInfo-result"></span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      3) Створіть геттер оцінок this.marks, який повертає масив оцінок студента
+      [5, 4, 4, 5]
+     </h3>
+     <div class="input-container">
+      <div>
+       <label for="get-marks-input">Введіть ім'я</label>
+       <input type="text" id="get-marks-input" placeholder="Введіть ім'я" />
+      </div>
+     </div>
+     <button id="get-marks-button">Перевірити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="get-marks-result"></span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      4) Створіть сеттер оцінок this.marks = 5, який дозволяє поставити оцінку
+      студенту. Після того, як оцінка поставлена, геттер повинен повернути масив
+      this.marks -> [5, 4, 4, 5, 5]
+     </h3>
+     <div class="input-container">
+      <div>
+       <label for="set-marks-input-name">Введіть ім'я</label>
+       <input
+        type="text"
+        id="set-marks-input-name"
+        placeholder="Введіть ім'я"
+       />
+      </div>
+      <div>
+       <label for="set-marks-input-mark">Введіть ім'я</label>
+       <input
+        type="number"
+        id="set-marks-input-mark"
+        placeholder="Введіть оцінку"
+       />
+      </div>
+     </div>
+     <button id="set-marks-button">Перевірити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="set-marks-result"></span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      5) Створіть метод отримання середнього балу this.getAverageMark() -> 4.6
+     </h3>
+     <div class="input-container">
+      <div>
+       <label for="getAverageMark-input">Введіть ім'я</label>
+       <input
+        type="text"
+        id="getAverageMark-input"
+        placeholder="Введіть ім'я"
+       />
+      </div>
+     </div>
+     <button id="getAverageMark-button">Перевірити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="getAverageMark-result"></span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      6) Створіть метод this.dismiss, який "виключить" студента. Після виклику
+      цього методу – ставити студенту оцінки та отримувати їх більше не можна.
+      (Ніяких помилок, просто повертається завжди null замість масиву оцінок)
+     </h3>
+     <div class="input-container">
+      <div>
+       <label for="dismiss-input">Введіть ім'я</label>
+       <input type="text" id="dismiss-input" placeholder="Введіть ім'я" />
+      </div>
+     </div>
+     <button id="dismiss-button">Перевірити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="dismiss-result"></span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      7) Створіть метод this.recover, який дозволить поновити студента
+     </h3>
+     <div class="input-container">
+      <div>
+       <label for="recover-input">Введіть ім'я</label>
+       <input type="text" id="recover-input" placeholder="Введіть ім'я" />
+      </div>
+     </div>
+     <button id="recover-button">Перевірити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="recover-result"></span>
+     </div>
+    </li>
+   </ul>
+   <h2>Advanced</h2>
+   <ul>
+    <li>
+     <h3 class="function-title">
+      1) Створіть новий клас BudgetStudent, який повністю наслідує клас Student
+     </h3>
+     <div class="input-container">
+      <div>
+       <label for="BudgetStudent-input-country">Введіть university</label>
+       <input
+        type="text"
+        id="BudgetStudent-input-university"
+        placeholder="Введіть university"
+       />
+      </div>
+      <div>
+       <label for="BudgetStudent-input-course">Введіть course</label>
+       <input
+        type="number"
+        id="BudgetStudent-input-course"
+        placeholder="Введіть course"
+       />
+      </div>
+      <div>
+       <label for="BudgetStudent-input-fullName">Введіть fullName</label>
+       <input
+        type="text"
+        id="BudgetStudent-input-fullName"
+        placeholder="Введіть fullName"
+       />
+      </div>
+     </div>
+     <button id="BudgetStudent-constructor-button">Підтвердити</button>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="BudgetStudent-constructor-result">{}</span>
+     </div>
+    </li>
+    <li>
+     <h2>Для виведення стипендії ставлю першу оцінку 4.0</h2>
+     <div class="result-container">
+      <span>Рахунок студента:</span>
+      <span class="result" id="getScholarship-result">0грн.</span>
+     </div>
+    </li>
+   </ul>
+  </div>
+  <script type="module" src="./js/index.js"></script>
+ </body>
+</html>
