@@ -17,9 +17,9 @@ const findStudent = (name) => {
 };
 
 export const getSubjects = (name) => {
- if (!findStudent(name)) return 'Не знайдено';
- const { subjects } = findStudent(name);
- const titles = Object.keys(subjects).map((title) => {
+ const student = findStudent(name);
+ if (!student) return 'Не знайдено';
+ const titles = Object.keys(student.subjects).map((title) => {
   const titleToUpper = title[0].toUpperCase() + title.slice(1, title.length);
   return titleToUpper.replace('_', ' ');
  });
@@ -36,9 +36,9 @@ const getAverage = (numbers) => {
 };
 
 export const getAverageMark = (name) => {
- if (!findStudent(name)) return 'Не знайдено';
- const { subjects } = findStudent(name);
- const marks = Object.values(subjects).reduce(
+ const student = findStudent(name);
+ if (!student) return 'Не знайдено';
+ const marks = Object.values(student.subjects).reduce(
   (acc, value) => (acc = acc.concat(...value)),
  );
  return getAverage(marks).toFixed(2);
@@ -49,8 +49,9 @@ export const getAverageMark = (name) => {
 // Пoвинна бути виведена інформація: курс, ім'я, середня оцінка.
 
 export const getStudentInfo = (student) => {
- if (!findStudent(student)) return 'Не знайдено';
- const { course, name } = findStudent(student);
+ const person = findStudent(student);
+ if (!person) return 'Не знайдено';
+ const { course, name } = person;
  const info = {
   course,
   name,

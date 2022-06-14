@@ -41,7 +41,9 @@ import {
 getSubjectsButtonEl.addEventListener(
  'click',
  () =>
-  (getSubjectsResultEl.textContent = getSubjects(getSubjectsInputEl.value)),
+  (getSubjectsResultEl.textContent = getSubjects(
+   getSubjectsInputEl.value.trim(),
+  )),
 );
 
 // 2)
@@ -50,7 +52,7 @@ getAverageMarkButtonEl.addEventListener(
  'click',
  () =>
   (getAverageMarkResultEl.textContent = getAverageMark(
-   getAverageMarkInputEl.value,
+   getAverageMarkInputEl.value.trim(),
   )),
 );
 
@@ -60,7 +62,7 @@ getStudentInfoButtonEl.addEventListener(
  'click',
  () =>
   (getStudentInfoResultEl.textContent = getStudentInfo(
-   getStudentInfoInputEl.value,
+   getStudentInfoInputEl.value.trim(),
   )),
 );
 
@@ -84,6 +86,6 @@ calculateWordLettersButtonEl.addEventListener(
  'click',
  () =>
   (calculateWordLettersResultEl.textContent = calculateWordLetters(
-   calculateWordLettersInputEl.value,
+   calculateWordLettersInputEl.value.trim(),
   )),
 );
