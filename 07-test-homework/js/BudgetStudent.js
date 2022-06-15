@@ -21,11 +21,12 @@ export class BudgetStudent extends Student {
   super(university, course, fullName);
   this.scholarship = 0;
   // First mark
-  this.marks = [4];
+  this.marks = 4;
   //
   this.getScholarship();
  }
  getScholarship() {
+  getScholarshipResultEl.textContent = 'Ваш рахунок: 0грн. Почекайте 30 сек.';
   setInterval(() => {
    if (!this.dismissed && this.getAverageMark() >= 4) this.scholarship += 1400;
    getScholarshipResultEl.textContent = `Ви отримали 1400грн. стипендії. Ваш рахунок ${this.scholarship}грн.`;
