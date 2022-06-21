@@ -4,7 +4,7 @@ export const handleStartFunc = (element) => {
   element.className === 'js-start' ? 'Зупинити' : 'Перевірити';
 };
 
-const createColor = () => Math.floor(Math.random() * 256);
+const createColor = () => Math.floor(Math.random() * 255 + 1);
 
 const generateColors = () =>
  `rgb(${createColor()} ${createColor()} ${createColor()})`;
