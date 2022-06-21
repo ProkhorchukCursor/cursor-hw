@@ -9,6 +9,7 @@ const playAudio = (key, audio) => {
 };
 
 const handlePlayKey = (e) => {
+ if (e.repeat) return;
  const key = document.querySelector(`.piano-key[data-key="${e.keyCode}"]`);
  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
  if (!audio) return;
@@ -16,6 +17,7 @@ const handlePlayKey = (e) => {
 };
 
 const handlePlayClick = (e) => {
+ if (e.repeat) return;
  let key;
  keys.forEach((el) => {
   if (el === e.target) key = el;
