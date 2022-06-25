@@ -1,6 +1,6 @@
 // Main array
 
-import { DATA_BASE } from './variables.js';
+import { DATA_BASE, MAX_SALARY, MIN_SALARY, TIME } from './variables.js';
 
 // HTML-elements
 
@@ -56,7 +56,8 @@ export const handleStartFunc = () => {
   getMySalaryButtonEl.className === 'js-start' ? 'Зупинити' : 'Перевірити';
 };
 
-const generateSalary = () => Math.round(Math.random() * (2000 - 1500) + 1500);
+const generateSalary = () =>
+ Math.round(Math.random() * (MAX_SALARY - MIN_SALARY) + MIN_SALARY);
 
 const generateData = (country) => {
  const salary = generateSalary();
@@ -69,15 +70,19 @@ const generateData = (country) => {
  };
 };
 
+const showSalary = (country) => {
+ const result = generateData(country);
+ console.log(result);
+ getMySalaryResultEl.textContent = JSON.stringify(result);
+};
+
 export const getMySalary = function () {
  if (!this) return (getMySalaryResultEl.textContent = 'Країни не знайдено');
  if (getMySalaryButtonEl.className !== 'js-start') return clearInterval(timer);
 
- getMySalaryResultEl.textContent = JSON.stringify(generateData(this));
- console.log(generateData(this));
+ showSalary(this);
+
  timer = setInterval(() => {
-  const result = generateData(this);
-  console.log(result);
-  return (getMySalaryResultEl.textContent = JSON.stringify(result));
- }, 10000);
+  showSalary(this);
+ }, TIME);
 };

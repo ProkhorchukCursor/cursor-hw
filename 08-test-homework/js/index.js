@@ -1,9 +1,10 @@
 // HTML-elements
 
-import {
- generateBlocksButtonEl,
- generateBlocksResultResultEl,
-} from './elements.js';
+import { generateBlocksButtonEl, generateBlocksResultEl } from './elements.js';
+
+// Constants
+
+import { TIME, CLASS_START } from './constants.js';
 
 // Functions
 
@@ -18,9 +19,9 @@ let timer = null;
 generateBlocksButtonEl.addEventListener('click', () => {
  handleStartFunc(generateBlocksButtonEl);
 
- if (generateBlocksButtonEl.className !== 'js-start')
+ if (generateBlocksButtonEl.className !== CLASS_START)
   return clearInterval(timer);
 
- generateBlocks(generateBlocksResultResultEl);
- timer = setInterval(() => generateBlocks(generateBlocksResultResultEl), 1000);
+ generateBlocks(generateBlocksResultEl);
+ timer = setInterval(() => generateBlocks(generateBlocksResultEl), TIME);
 });

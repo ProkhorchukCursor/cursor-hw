@@ -3,6 +3,6 @@
 export const generateBlocksButtonEl = document.querySelector(
  '#generateBlocks-button',
 );
-export const generateBlocksResultResultEl = document.querySelector(
+export const generateBlocksResultEl = document.querySelector(
  '#generateBlocks-result',
 );
