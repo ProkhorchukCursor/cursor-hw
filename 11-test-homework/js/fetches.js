@@ -9,7 +9,7 @@ export const getFilm = () => {
 };
 
 export const getCharacter = (charact) => {
- return fetch(`${API}/${charact}`)
+ return fetch(`${charact}`)
   .then((response) => {
    return response.json();
   })

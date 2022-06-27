@@ -1,6 +1,6 @@
 // Elements
 
-import { getPlanetsPageResultEl } from "./elements.js";
+import { getPlanetsPageResultEl, getPlanetsResultEl } from "./elements.js";
 
 // Constants
 
@@ -84,19 +84,20 @@ const addPlanet = (planet, resultEl) => {
 
 export const getPlanetsInfo = async (resultEl) => {
  const planet = await getPlanets(numberPlanet);
+ resultEl.innerHTML = "";
  addPlanet(planet, resultEl);
 };
 
 export const getPlanetsBack = async () => {
  if (numberPlanet === 1) return;
  numberPlanet--;
- getPlanetsInfo();
+ getPlanetsInfo(getPlanetsResultEl);
  getPlanetsPageResultEl.textContent = numberPlanet;
 };
 
 export const getPlanetsNext = async () => {
  numberPlanet++;
- getPlanetsInfo();
+ getPlanetsInfo(getPlanetsResultEl);
  getPlanetsPageResultEl.textContent = numberPlanet;
 };
 
