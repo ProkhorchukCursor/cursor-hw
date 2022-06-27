@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+   href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap"
+   rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="./styles/index.css" />
+  <title>11-test-homework</title>
+ </head>
+
+ <body>
+  <div class="container">
+   <h1 class="home-title">11-test-homework</h1>
+   <a class="navigation-link" href="../index.html"> &#8666; To main</a>
+   <h2>
+    <a class="navigation-link" href="https://swapi.dev">https://swapi.dev</a>
+    – Працювати необхідно з цим API. Інформацію про те, як влаштовано АПІ
+    шукайте в документації! Уявіть, що вам прийшло завдання на работі – все що
+    залишив бекендер - це таку документацію та полетів у відпустку) Дуже
+    заохочується максимально креативний підхід до цього завдання – робіть стилі,
+    додайте який-небудь приємний шрифт (Якщо зовсім туго з ідеями шрифтів
+    візьміть Roboto с Google Fonts).
+   </h2>
+   <ol>
+    <li>
+     <h3 class="function-title">
+      Створіть кнопку: "отримати інформацію". При натисканні на неї отримайте та
+      відобразіть інформацію про усіх персонажів 5 епізоду зоряних
+      війн(films/2). Зверніть увагу, що необхідно вивчити документацію та на її
+      основі вивести інформацію. Виводимо тільки: повне ім'я персонажа, дата
+      народження, стать(якщо зробите іконкою, буде взагалі ідеально). БОНУС
+      ПЛЮС: Якщо додумаєтесь, як зберігати і виводити фотки персонажів – буде
+      дуже круто. Я дам підказку: можна створити об'єкт з
+      ключ=посилання_на_персонажа, значення=посилання_на_фотку У самому АПІ
+      фотографій нмає, але ДЗшка стане набагато приємніше виглядати з
+      зображеннями персонажів
+     </h3>
+     <button id="getInfo-button">Отримати інформацію</button>
+     <div id="getInfo-result"></div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      Виведіть список усіх планет, які були у зоряних війнах. Додайте кнопку
+      next, яка завантажить наступну сторінку зі списком планет. Попередня
+      сторінка при цьому має пропасти. (відбувається заміна даних)
+     </h3>
+     <button id="getPlanets-button">Отримати інформацію</button>
+     <div id="getPlanets-result"></div>
+     <div class="control">
+      <button id="getPlanets-back">Попередня</button>
+      <div id="getPlanets-page"></div>
+      <button id="getPlanets-next">Наступна</button>
+     </div>
+    </li>
+   </ol>
+  </div>
+  <script type="module" src="./js/index.js"></script>
+ </body>
+</html>
