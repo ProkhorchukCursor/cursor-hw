@@ -3,7 +3,7 @@ import { API } from "./constants.js";
 import { stateWookiee } from "./index.js";
 
 export const getFilm = (film) => {
- return fetch(`${API}/films/${film}/${stateWookiee.path}`)
+ return fetch(`${API}/films/${film}`)
   .then((response) => {
    return response.json();
   })

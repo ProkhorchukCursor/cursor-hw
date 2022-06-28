@@ -95,7 +95,7 @@ button:hover, button:focus {
 }
 
 .getPlanets-result_container {
-        display: flex;
+    display: flex;
 }
 
 .control {
@@ -115,6 +115,7 @@ button:hover, button:focus {
 
 .getPlanets-result_info {
     flex-grow: 1;
+    max-width: 300px;
 }
 
 .getPlanets-result_info-name {

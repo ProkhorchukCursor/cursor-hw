@@ -4,7 +4,16 @@ import { getPlanetsPageResultEl, getPlanetsResultEl } from "./elements.js";
 
 // Constants
 
-import { ELEMENT } from "./constants.js";
+import {
+ ELEMENT,
+ PLANETS_CLIMATE,
+ PLANETS_CLIMATE_WOOKIEE,
+ GENDER_WOOKIEE,
+} from "./constants.js";
+
+// States
+
+import { stateWookiee } from "./index.js";
 
 // Fetches
 
@@ -13,6 +22,32 @@ import { getFilm, getCharacter, getPlanets } from "./fetches.js";
 // Functions
 
 // 1)
+
+const getPlanetWookiee = (planet) => {
+ return {
+  name: planet.whrascwo,
+  climate: planet.oaanahscraaowo,
+  population: planet.akooakhuanraaoahoowh,
+  terrain: planet.aoworcrcraahwh,
+ };
+};
+
+const getGenderWookiee = (gender) => {
+ GENDER_WOOKIEE.forEach((gen) => {
+  if (gen.rrwowhwaworc === gender) return (gender = gen.gender);
+ });
+ return gender;
+};
+
+const getCharacterWookiee = (character) => {
+ return {
+  name: character.whrascwo,
+  gender: getGenderWookiee(character.rrwowhwaworc),
+  birth_year: character.rhahrcaoac_roworarc,
+ };
+};
+
+// 2)
 
 const addCard = (character, resultEl) => {
  const card = document.createElement(ELEMENT);
@@ -52,41 +87,37 @@ export const getInfo = async (resultEl, film) => {
  resultEl.innerHTML = "";
  characters.forEach((charact) =>
   getCharacter(charact).then((character) => {
-   addCard(character, resultEl);
+   if (stateWookiee.path) {
+    addCard(getCharacterWookiee(character), resultEl);
+   } else {
+    addCard(character, resultEl);
+   }
   }),
  );
 };
 
-// 2)
+// 3)
 
 let numberPlanet = 1;
 
 const getImagePlanet = (planet) => {
- if (planet.climate.includes("arid")) {
-  planet.src = "./images/planets/arid planet.jpg";
-  return planet;
- }
- if (planet.climate.includes("tropical")) {
-  planet.src = "./images/planets/tropical planet.jpg";
-  return planet;
- }
- if (planet.climate.includes("frozen") || planet.climate.includes("frigid")) {
-  planet.src = "./images/planets/frigid planet.jpg";
-  return planet;
- }
- if (planet.climate.includes("murky")) {
-  planet.src = "./images/planets/murky planet.jpg";
-  return planet;
- }
- if (planet.climate.includes("hot")) {
-  planet.src = "./images/planets/hot planet.jpg";
-  return planet;
- }
- if (planet.climate.includes("polluted")) {
-  planet.src = "./images/planets/polluted planet.jpg";
-  return planet;
- }
  planet.src = "./images/planets/temperate planet.jpg";
+
+ if (stateWookiee.path) {
+  PLANETS_CLIMATE_WOOKIEE.forEach((climate, i) => {
+   if (planet.climate.includes(climate)) {
+    planet.src = `./images/planets/${PLANETS_CLIMATE[i]} planet.jpg`;
+    return planet;
+   }
+  });
+ } else {
+  PLANETS_CLIMATE.forEach((climate) => {
+   if (planet.climate.includes(climate)) {
+    planet.src = `./images/planets/${climate} planet.jpg`;
+    return planet;
+   }
+  });
+ }
  return planet;
 };
 
@@ -105,14 +136,15 @@ const addPlanet = (planet, resultEl) => {
        <h3 class="getPlanets-result_info-name">${planet.name}</h3>
        <p>Climate: ${planet.climate}</p>
        <p>Terrain: ${planet.terrain}</p>
-       <p>Population: ${planet.population} people</p>
+       <p>Population: ${planet.population}</p>
       </div>
    `;
  resultEl.appendChild(card);
 };
 
 export const getPlanetsInfo = async (resultEl) => {
- const planet = await getPlanets(numberPlanet);
+ let planet = await getPlanets(numberPlanet);
+ if (stateWookiee.path) planet = getPlanetWookiee(planet);
  resultEl.innerHTML = "";
  addPlanet(getImagePlanet(planet), resultEl);
 };
