@@ -6,7 +6,8 @@ import {
  ELEMENT,
  ELEMENT_WIDTH,
  ELEMENT_HEIGHT,
-} from './constants.js';
+ NUMBER_ELEMENTS,
+} from "./constants.js";
 
 // Functions
 
@@ -14,7 +15,7 @@ export const handleStartFunc = (element) => {
  element.className =
   element.className === CLASS_START ? CLASS_STOP : CLASS_START;
  element.textContent =
-  element.className === CLASS_START ? 'Зупинити' : 'Перевірити';
+  element.className === CLASS_START ? "Зупинити" : "Перевірити";
 };
 
 const createColor = () => Math.floor(Math.random() * 255 + 1);
@@ -30,7 +31,7 @@ const generateStyles = (block) => {
 
 const createBlocks = () => {
  const result = [];
- for (let i = 0; i < 25; i++) {
+ for (let i = 0; i < NUMBER_ELEMENTS; i++) {
   const block = document.createElement(ELEMENT);
   generateStyles(block);
   result.push(block);
