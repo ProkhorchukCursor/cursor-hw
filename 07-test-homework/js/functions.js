@@ -1,11 +1,11 @@
 // Students
 
-import { students } from './students.js';
+import { students } from "./students.js";
 
 // Classes
 
-import { Student } from './Student.js';
-import { BudgetStudent } from './BudgetStudent.js';
+import { Student } from "./Student.js";
+import { BudgetStudent } from "./BudgetStudent.js";
 
 // Validation
 
@@ -28,7 +28,7 @@ const validatorUniversity = (university) => {
 };
 
 const validator = (university, name) => {
- if (!validatorUniversity(university)) return 'Введіть університет';
+ if (!validatorUniversity(university)) return "Введіть університет";
  if (validatorFullName(name)) return validatorFullName(name);
 };
 
@@ -93,7 +93,7 @@ export const setMarksStudent = (fullNameEl, markEl, resultEl) => {
   return (resultEl.textContent = validatorFindStudent(fullNameEl.value.trim()));
  }
  if (!markEl.value) {
-  return (resultEl.textContent = 'Введіть оцінку');
+  return (resultEl.textContent = "Введіть оцінку");
  }
  const student = findStudent(fullNameEl);
  student.marks = Number(markEl.value);
@@ -107,6 +107,7 @@ export const getAverageMarkStudent = (fullNameEl, resultEl) => {
   return (resultEl.textContent = validatorFindStudent(fullNameEl.value.trim()));
  }
  const student = findStudent(fullNameEl);
+ if (student.dismissed) return (resultEl.textContent = "Студента відраховано");
  resultEl.textContent = JSON.stringify(student.getAverageMark());
 };
 
@@ -118,7 +119,7 @@ export const dismissStudent = (fullNameEl, resultEl) => {
  }
  const student = findStudent(fullNameEl);
  student.dismiss();
- if (student.dismissed) return (resultEl.textContent = 'Виключено');
+ if (student.dismissed) return (resultEl.textContent = "Виключено");
 };
 
 // 7)
@@ -129,7 +130,7 @@ export const recoverStudent = (fullNameEl, resultEl) => {
  }
  const student = findStudent(fullNameEl);
  student.recover();
- if (!student.dismissed) return (resultEl.textContent = 'Поновлено');
+ if (!student.dismissed) return (resultEl.textContent = "Поновлено");
 };
 
 // Advanced

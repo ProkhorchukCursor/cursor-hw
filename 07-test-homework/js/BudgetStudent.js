@@ -10,11 +10,11 @@
 
 // HTML-elements
 
-import { getScholarshipResultEl } from './elements.js';
+import { getScholarshipResultEl } from "./elements.js";
 
 // Classes
 
-import { Student } from './Student.js';
+import { Student } from "./Student.js";
 
 export class BudgetStudent extends Student {
  constructor(university, course, fullName) {
@@ -26,10 +26,14 @@ export class BudgetStudent extends Student {
   this.getScholarship();
  }
  getScholarship() {
-  getScholarshipResultEl.textContent = 'Ваш рахунок: 0грн. Почекайте 30 сек.';
+  getScholarshipResultEl.textContent = "Ваш рахунок: 0грн. Почекайте 30 сек.";
   setInterval(() => {
-   if (!this.dismissed && this.getAverageMark() >= 4) this.scholarship += 1400;
-   getScholarshipResultEl.textContent = `Ви отримали 1400грн. стипендії. Ваш рахунок ${this.scholarship}грн.`;
+   if (!this.dismissed && this.getAverageMark() >= 4) {
+    this.scholarship += 1400;
+    getScholarshipResultEl.textContent = `Ви отримали 1400грн. стипендії. Ваш рахунок ${this.scholarship}грн.`;
+   } else {
+    getScholarshipResultEl.textContent = `Погано вчився. Твій рахунок ${this.scholarship}грн.`;
+   }
   }, 30000);
  }
 }

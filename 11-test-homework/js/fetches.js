@@ -1,7 +1,9 @@
 import { API } from "./constants.js";
 
-export const getFilm = () => {
- return fetch(`${API}/films/2`)
+import { stateWookiee } from "./index.js";
+
+export const getFilm = (film) => {
+ return fetch(`${API}/films/${film}/${stateWookiee.path}`)
   .then((response) => {
    return response.json();
   })
@@ -9,7 +11,7 @@ export const getFilm = () => {
 };
 
 export const getCharacter = (charact) => {
- return fetch(`${charact}`)
+ return fetch(`${charact}/${stateWookiee.path}`)
   .then((response) => {
    return response.json();
   })
@@ -17,7 +19,7 @@ export const getCharacter = (charact) => {
 };
 
 export const getPlanets = (planetId) => {
- return fetch(`${API}/planets/${planetId}`)
+ return fetch(`${API}/planets/${planetId}/${stateWookiee.path}`)
   .then((response) => {
    return response.json();
   })

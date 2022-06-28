@@ -1,11 +1,15 @@
 // 1)
 
-export const getInfoButtonEl = document.querySelector("#getInfo-button");
-export const getInfoResultEl = document.querySelector("#getInfo-result");
+export const getWookieeButtonEl = document.querySelector("#getWookiee-button");
 
 // 2)
 
-export const getPlanetsButtonEl = document.querySelector("#getPlanets-button");
+export const getInfoButtonEl = document.querySelector("#getInfo-button");
+export const getInfoResultEl = document.querySelector("#getInfo-result");
+export const getInfoSelectEl = document.querySelector("#getInfo-select");
+
+// 3)
+
 export const getPlanetsResultEl = document.querySelector("#getPlanets-result");
 
 // Controls

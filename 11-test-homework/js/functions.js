@@ -47,8 +47,8 @@ const addCard = (character, resultEl) => {
  resultEl.appendChild(card);
 };
 
-export const getInfo = async (resultEl) => {
- const { characters } = await getFilm();
+export const getInfo = async (resultEl, film) => {
+ const { characters } = await getFilm(film);
  resultEl.innerHTML = "";
  characters.forEach((charact) =>
   getCharacter(charact).then((character) => {
@@ -61,6 +61,35 @@ export const getInfo = async (resultEl) => {
 
 let numberPlanet = 1;
 
+const getImagePlanet = (planet) => {
+ if (planet.climate.includes("arid")) {
+  planet.src = "./images/planets/arid planet.jpg";
+  return planet;
+ }
+ if (planet.climate.includes("tropical")) {
+  planet.src = "./images/planets/tropical planet.jpg";
+  return planet;
+ }
+ if (planet.climate.includes("frozen") || planet.climate.includes("frigid")) {
+  planet.src = "./images/planets/frigid planet.jpg";
+  return planet;
+ }
+ if (planet.climate.includes("murky")) {
+  planet.src = "./images/planets/murky planet.jpg";
+  return planet;
+ }
+ if (planet.climate.includes("hot")) {
+  planet.src = "./images/planets/hot planet.jpg";
+  return planet;
+ }
+ if (planet.climate.includes("polluted")) {
+  planet.src = "./images/planets/polluted planet.jpg";
+  return planet;
+ }
+ planet.src = "./images/planets/temperate planet.jpg";
+ return planet;
+};
+
 const addPlanet = (planet, resultEl) => {
  const card = document.createElement(ELEMENT);
  card.className = "getPlanets-result_container";
@@ -68,8 +97,8 @@ const addPlanet = (planet, resultEl) => {
     <div class="getPlanets-result_image-container">
        <img
         class="getPlanets-result_image"
-        src="./images/planets/arid planet.jpg"
-        alt=""
+        src="${planet.src}"
+        alt="${planet.name}"
        />
       </div>
       <div class="getPlanets-result_info">
@@ -85,7 +114,7 @@ const addPlanet = (planet, resultEl) => {
 export const getPlanetsInfo = async (resultEl) => {
  const planet = await getPlanets(numberPlanet);
  resultEl.innerHTML = "";
- addPlanet(planet, resultEl);
+ addPlanet(getImagePlanet(planet), resultEl);
 };
 
 export const getPlanetsBack = async () => {
