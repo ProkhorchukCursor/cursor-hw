@@ -17,6 +17,10 @@ import { API_WOOKIEE } from "./constants.js";
 // Functions
 
 import {
+ handleStartWookiee,
+ handleGetWookiee,
+ handleBackWookiee,
+ handleNextWookiee,
  getInfo,
  getPlanetsInfo,
  getPlanetsBack,
@@ -30,6 +34,10 @@ import {
 export const stateWookiee = { path: "" };
 
 getWookieeButtonEl.addEventListener("click", () => {
+ handleStartWookiee(getWookieeButtonEl);
+ handleGetWookiee(getInfoButtonEl);
+ handleBackWookiee(getPlanetsBackButtonEl);
+ handleNextWookiee(getPlanetsNextButtonEl);
  if (!stateWookiee.path) return (stateWookiee.path = API_WOOKIEE);
  return (stateWookiee.path = "");
 });

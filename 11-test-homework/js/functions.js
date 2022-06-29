@@ -9,6 +9,8 @@ import {
  PLANETS_CLIMATE,
  PLANETS_CLIMATE_WOOKIEE,
  GENDER_WOOKIEE,
+ CLASS_START,
+ CLASS_STOP,
 } from "./constants.js";
 
 // States
@@ -22,6 +24,35 @@ import { getFilm, getCharacter, getPlanets } from "./fetches.js";
 // Functions
 
 // 1)
+
+export const handleStartWookiee = (element) => {
+ element.className =
+  element.className === CLASS_START ? CLASS_STOP : CLASS_START;
+ element.textContent =
+  element.className === CLASS_START ? "raaaaaahhgh uughghhhgh" : "Перекласти";
+};
+
+export const handleGetWookiee = (element) => {
+ element.className =
+  element.className === CLASS_START ? CLASS_STOP : CLASS_START;
+ element.textContent =
+  element.className === CLASS_START
+   ? "uuh aaahnruh aarrragghuuhw"
+   : "Отримати інформацію";
+};
+
+export const handleNextWookiee = (element) => {
+ element.className =
+  element.className === CLASS_START ? CLASS_STOP : CLASS_START;
+ element.textContent = element.className === CLASS_START ? "huurh" : "Наступна";
+};
+
+export const handleBackWookiee = (element) => {
+ element.className =
+  element.className === CLASS_START ? CLASS_STOP : CLASS_START;
+ element.textContent =
+  element.className === CLASS_START ? "raaaaaahhgh" : "Попередня";
+};
 
 const getPlanetWookiee = (planet) => {
  return {

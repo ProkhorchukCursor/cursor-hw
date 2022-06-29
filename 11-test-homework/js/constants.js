@@ -37,3 +37,6 @@ export const GENDER_WOOKIEE = [
   rrwowhwaworc: "wwwoscraanwo",
  },
 ];
+
+export const CLASS_START = "js-start";
+export const CLASS_STOP = "js-stop";
