@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="./styles/index.css" />
+  <title>12-test-homework</title>
+ </head>
+
+ <body>
+  <div class="container">
+   <h1 class="home-title">12-test-homework</h1>
+   <a class="navigation-link" href="../index.html"> &#8666; To main</a>
+   <h2>Символи. Генератори. Ітератори</h2>
+   <h2>Задачі</h2>
+   <ul>
+    <li>
+     <h3 class="function-title">
+      Завдання 1: Створіть нескінченний генератор ідентифікаторів. Повинен
+      працювати наступним чином: const idGenerator = createIdGenerator();
+      idGenerator.next().value -> 1 idGenerator.next().value -> 2
+      idGenerator.next().value -> 3 ...
+     </h3>
+     <div class="button-container">
+      <button id="getId-button">Згенерувати ID</button>
+     </div>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="getId-result"></span>
+     </div>
+    </li>
+    <li>
+     <h3 class="function-title">
+      Завдання 2 (advanced) Створіть генератор, який буде регулювати розміри
+      шрифту для вашого сайту. (Можна допрацювати, щоб реально змінював шрифт,
+      але це не є обов'язковою умовою) Працювати генератор буде наступним чином:
+      const fontGenerator = newFontGenerator(14); // 14 – стартове значення
+      fontGenerator.next("up").value -> 14 fontGenerator.next("up").value -> 16
+      fontGenerator.next("up").value -> 18 fontGenerator.next().value -> 18
+      fontGenerator.next("down").value -> 16 fontGenerator.next("down").value ->
+      14 fontGenerator.next("down").value -> 12 fontGenerator.next().value -> 12
+     </h3>
+     <div class="button-container">
+      <button id="fontGenerator-button-decrement">Зменшити</button>
+      <button id="fontGenerator-button-result">Перевірити</button>
+      <button id="fontGenerator-button-increment">Збільшити</button>
+     </div>
+     <div class="result-container">
+      <span>Результат:</span>
+      <span class="result" id="fontGenerator-result"></span>
+     </div>
+    </li>
+   </ul>
+  </div>
+  <script type="module" src="./js/index.js"></script>
+ </body>
+</html>
