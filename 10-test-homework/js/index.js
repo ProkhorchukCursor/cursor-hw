@@ -4,15 +4,15 @@ import {
  getRandomChineseButtonEl,
  getRandomChineseInputEl,
  getRandomChineseResultEl,
-} from './elements.js';
+} from "./elements.js";
 
 // Constants
 
-import { TIME, CLASS_START } from './constants.js';
+import { TIME, CLASS_START } from "./constants.js";
 
 // Functions
 
-import { handleStartFunc, getRandomChinese } from './functions.js';
+import { handleStartFunc, getRandomChinese } from "./functions.js";
 
 // EventListeners
 
@@ -20,10 +20,11 @@ import { handleStartFunc, getRandomChinese } from './functions.js';
 
 let timer = null;
 
-getRandomChineseButtonEl.addEventListener('click', () => {
+getRandomChineseButtonEl.addEventListener("click", () => {
  const length = Number(getRandomChineseInputEl.value);
- if (!length && length <= 0)
-  return (getRandomChineseResultEl.textContent = 'Неправильно ввели');
+ if (!length)
+  return (getRandomChineseResultEl.textContent = "Потрібно ввести довжину");
+ if (length <= 0) return "Довжина не може бути менше 0";
 
  handleStartFunc(getRandomChineseButtonEl);
 
@@ -31,7 +32,16 @@ getRandomChineseButtonEl.addEventListener('click', () => {
   return clearTimeout(timer);
 
  timer = setInterval(
-  () => getRandomChinese(getRandomChineseResultEl, length),
+  () =>
+   getRandomChinese(length)
+    .then((res) => {
+     const li = document.createElement("li");
+     li.innerHTML = `<p>${res}</p>`;
+     console.log(res);
+     getRandomChineseResultEl.appendChild(li);
+    })
+    .catch((rej) => console.log(rej)),
+
   TIME * length,
  );
 });
