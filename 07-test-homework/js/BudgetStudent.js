@@ -24,15 +24,17 @@ export class BudgetStudent extends Student {
   this.marks = 4;
   //
   this.getScholarship();
+  this.interval = null;
  }
  getScholarship() {
   getScholarshipResultEl.textContent = "Ваш рахунок: 0грн. Почекайте 30 сек.";
-  setInterval(() => {
+  this.interval = setInterval(() => {
    if (!this.dismissed && this.getAverageMark() >= 4) {
     this.scholarship += 1400;
     getScholarshipResultEl.textContent = `Ви отримали 1400грн. стипендії. Ваш рахунок ${this.scholarship}грн.`;
    } else {
     getScholarshipResultEl.textContent = `Погано вчився. Твій рахунок ${this.scholarship}грн.`;
+    return clearInterval(this.interval);
    }
   }, 30000);
  }
