@@ -57,14 +57,16 @@
       отримати інформацію не про 5тий епізод, а про фільм, номер якого вказано у
       полі вводу. Якщо вказана цифра 1 – потрібно передати запит на /films/1
      </h3>
-     <select name="film" id="getInfo-select">
-      <option value="4">Прихована загроза (1999)</option>
-      <option value="5">Атака клонів (2002)</option>
-      <option value="6">Помста ситхів (2005)</option>
-      <option value="1">Нова надія (1977)</option>
-      <option value="2">Імперія завдає удару у відповідь (1980)</option>
-      <option value="3">Повернення джедая (1983)</option>
-     </select>
+     <div class="select-container">
+      <select name="film" id="getInfo-select">
+       <option value="4">Прихована загроза (1999)</option>
+       <option value="5">Атака клонів (2002)</option>
+       <option value="6">Помста ситхів (2005)</option>
+       <option value="1">Нова надія (1977)</option>
+       <option value="2">Імперія завдає удару у відповідь (1980)</option>
+       <option value="3">Повернення джедая (1983)</option>
+      </select>
+     </div>
      <button id="getInfo-button" class="js-stop">Отримати інформацію</button>
      <div id="getInfo-result"></div>
     </li>
@@ -82,6 +84,9 @@
      </div>
     </li>
    </ol>
+  </div>
+  <div class="loader" style="display: block">
+   <div class="loader-image"></div>
   </div>
   <script type="module" src="./js/index.js"></script>
  </body>

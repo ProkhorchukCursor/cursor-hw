@@ -1,6 +1,10 @@
 // Elements
 
-import { getPlanetsPageResultEl, getPlanetsResultEl } from "./elements.js";
+import {
+ getPlanetsPageResultEl,
+ getPlanetsResultEl,
+ loaderEl,
+} from "./elements.js";
 
 // Constants
 
@@ -22,6 +26,11 @@ import { stateWookiee } from "./index.js";
 import { getFilm, getCharacter, getPlanets } from "./fetches.js";
 
 // Functions
+
+export const loaderToggle = () => {
+ if (loaderEl.style.display) return (loaderEl.style.display = "none");
+ return (loaderEl.style.display = "block");
+};
 
 // 1)
 

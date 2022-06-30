@@ -1,3 +1,5 @@
+export const loaderEl = document.querySelector(".loader");
+
 // 1)
 
 export const getWookieeButtonEl = document.querySelector("#getWookiee-button");

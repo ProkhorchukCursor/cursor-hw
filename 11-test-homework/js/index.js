@@ -45,7 +45,10 @@ getWookieeButtonEl.addEventListener("click", () => {
 // 2)
 
 getInfoButtonEl.addEventListener("click", () => {
- getInfo(getInfoResultEl, getInfoSelectEl.value);
+ getInfoButtonEl.disabled = true;
+ getInfo(getInfoResultEl, getInfoSelectEl.value).finally(
+  setTimeout(() => (getInfoButtonEl.disabled = false), 5000),
+ );
 });
 
 // 3)
