@@ -24,7 +24,7 @@ getRandomChineseButtonEl.addEventListener("click", () => {
  const length = Number(getRandomChineseInputEl.value);
  if (!length)
   return (getRandomChineseResultEl.textContent = "Потрібно ввести довжину");
- if (length <= 0)
+ if (length < 0)
   return (getRandomChineseResultEl.textContent =
    "Довжина не може бути менше 0");
 
