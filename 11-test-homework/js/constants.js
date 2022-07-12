@@ -38,5 +38,5 @@ export const GENDER_WOOKIEE = [
  },
 ];
 
-export const CLASS_START = "js-start";
-export const CLASS_STOP = "js-stop";
+export const CLASS_WOOKIEE = "js-wookiee";
+export const CLASS_HUMAN = "js-human";

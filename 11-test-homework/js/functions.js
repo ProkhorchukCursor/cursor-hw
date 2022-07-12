@@ -13,8 +13,8 @@ import {
  PLANETS_CLIMATE,
  PLANETS_CLIMATE_WOOKIEE,
  GENDER_WOOKIEE,
- CLASS_START,
- CLASS_STOP,
+ CLASS_WOOKIEE,
+ CLASS_HUMAN,
 } from "./constants.js";
 
 // States
@@ -28,39 +28,39 @@ import { getFilm, getCharacter, getPlanets } from "./fetches.js";
 // Functions
 
 export const loaderToggle = () => {
- if (loaderEl.style.display) return (loaderEl.style.display = "none");
- return (loaderEl.style.display = "block");
+ loaderEl.style.display = loaderEl.style.display ? "none" : "block";
 };
 
 // 1)
 
 export const handleStartWookiee = (element) => {
  element.className =
-  element.className === CLASS_START ? CLASS_STOP : CLASS_START;
+  element.className === CLASS_WOOKIEE ? CLASS_HUMAN : CLASS_WOOKIEE;
  element.textContent =
-  element.className === CLASS_START ? "raaaaaahhgh uughghhhgh" : "Перекласти";
+  element.className === CLASS_WOOKIEE ? "raaaaaahhgh uughghhhgh" : "Перекласти";
 };
 
 export const handleGetWookiee = (element) => {
  element.className =
-  element.className === CLASS_START ? CLASS_STOP : CLASS_START;
+  element.className === CLASS_WOOKIEE ? CLASS_HUMAN : CLASS_WOOKIEE;
  element.textContent =
-  element.className === CLASS_START
+  element.className === CLASS_WOOKIEE
    ? "uuh aaahnruh aarrragghuuhw"
    : "Отримати інформацію";
 };
 
 export const handleNextWookiee = (element) => {
  element.className =
-  element.className === CLASS_START ? CLASS_STOP : CLASS_START;
- element.textContent = element.className === CLASS_START ? "huurh" : "Наступна";
+  element.className === CLASS_WOOKIEE ? CLASS_HUMAN : CLASS_WOOKIEE;
+ element.textContent =
+  element.className === CLASS_WOOKIEE ? "huurh" : "Наступна";
 };
 
 export const handleBackWookiee = (element) => {
  element.className =
-  element.className === CLASS_START ? CLASS_STOP : CLASS_START;
+  element.className === CLASS_WOOKIEE ? CLASS_HUMAN : CLASS_WOOKIEE;
  element.textContent =
-  element.className === CLASS_START ? "raaaaaahhgh" : "Попередня";
+  element.className === CLASS_WOOKIEE ? "raaaaaahhgh" : "Попередня";
 };
 
 const getPlanetWookiee = (planet) => {
@@ -138,7 +138,7 @@ export const getInfo = async (resultEl, film) => {
 
 // 3)
 
-let numberPlanet = 1;
+let numberPlanet = 59;
 
 const getImagePlanet = (planet) => {
  planet.src = "./images/planets/temperate planet.jpg";
@@ -183,10 +183,17 @@ const addPlanet = (planet, resultEl) => {
 };
 
 export const getPlanetsInfo = async (resultEl) => {
- let planet = await getPlanets(numberPlanet);
- if (stateWookiee.path) planet = getPlanetWookiee(planet);
- resultEl.innerHTML = "";
- addPlanet(getImagePlanet(planet), resultEl);
+ try {
+  let planet = await getPlanets(numberPlanet);
+  if (stateWookiee.path) planet = getPlanetWookiee(planet);
+  resultEl.innerHTML = "";
+  addPlanet(getImagePlanet(planet), resultEl);
+ } catch (err) {
+  numberPlanet = 1;
+  getPlanetsInfo(resultEl);
+  getPlanetsPageResultEl.textContent = numberPlanet;
+  console.log(err);
+ }
 };
 
 export const getPlanetsBack = async () => {
