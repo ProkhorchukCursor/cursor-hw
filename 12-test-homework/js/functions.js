@@ -1,3 +1,7 @@
+// HTML-elements
+
+import { fontGeneratorResultEl, bodyEl } from "./elements.js";
+
 // Constants
 
 import { FONT_SIZE } from "./constants.js";
@@ -17,6 +21,12 @@ export const idGenerator = createIdGenerator();
 
 // 2)
 
+export const fontCounter = (command) => {
+ const fontSize = fontGenerator.next(command).value;
+ bodyEl.style.fontSize = `${fontSize}px`;
+ fontGeneratorResultEl.textContent = `${fontSize}px`;
+};
+
 function* newFontGenerator(fontSize) {
  let counter;
  while (true) {
@@ -30,4 +40,4 @@ function* newFontGenerator(fontSize) {
  }
 }
 
-export const fontGenerator = newFontGenerator(FONT_SIZE);
+const fontGenerator = newFontGenerator(FONT_SIZE);

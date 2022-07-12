@@ -138,7 +138,7 @@ export const getInfo = async (resultEl, film) => {
 
 // 3)
 
-let numberPlanet = 59;
+let numberPlanet = 1;
 
 const getImagePlanet = (planet) => {
  planet.src = "./images/planets/temperate planet.jpg";

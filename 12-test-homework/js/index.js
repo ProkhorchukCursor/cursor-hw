@@ -6,13 +6,11 @@ import {
  fontGeneratorDecrementButtonEl,
  fontGeneratorResultButtonEl,
  fontGeneratorIncrementButtonEl,
- fontGeneratorResultEl,
- bodyEl,
 } from "./elements.js";
 
 // Functions
 
-import { idGenerator, fontGenerator } from "./functions.js";
+import { idGenerator, fontCounter } from "./functions.js";
 
 // EventListeners
 
@@ -24,19 +22,12 @@ getIdButtonEl.addEventListener("click", () => {
 
 // 2)
 
-fontGeneratorDecrementButtonEl.addEventListener("click", () => {
- const fontSize = fontGenerator.next("down").value;
- bodyEl.style.fontSize = `${fontSize}px`;
- fontGeneratorResultEl.textContent = `${fontSize}px`;
-});
+fontGeneratorDecrementButtonEl.addEventListener("click", () =>
+ fontCounter("down"),
+);
 
-fontGeneratorResultButtonEl.addEventListener("click", () => {
- const fontSize = fontGenerator.next().value;
- fontGeneratorResultEl.textContent = `${fontSize}px`;
-});
+fontGeneratorResultButtonEl.addEventListener("click", fontCounter);
 
-fontGeneratorIncrementButtonEl.addEventListener("click", () => {
- const fontSize = fontGenerator.next("up").value;
- bodyEl.style.fontSize = `${fontSize}px`;
- fontGeneratorResultEl.textContent = `${fontSize}px`;
-});
+fontGeneratorIncrementButtonEl.addEventListener("click", () =>
+ fontCounter("up"),
+);
