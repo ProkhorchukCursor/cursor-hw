@@ -14,8 +14,6 @@ import { stateWookiee } from "./index.js";
 
 import { loaderToggle, numberPlanet } from "./functions.js";
 
-// Fetches
-
 export const getFilm = (film) => {
  loaderToggle();
  return fetch(`${API}/films/${film}`)
@@ -40,7 +38,7 @@ export const getPlanets = (planetId) => {
  loaderToggle();
  return fetch(`${API}/planets/${planetId}/${stateWookiee.path}`)
   .then((response) => {
-   getPlanetsPageResultEl.textContent = numberPlanet;
+   getPlanetsPageResultEl.textContent = planetId;
    return response.json();
   })
   .catch(() => console.log("getPlanetsError"))

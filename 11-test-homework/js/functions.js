@@ -191,19 +191,19 @@ export const getPlanetsInfo = async (resultEl) => {
  } catch (err) {
   numberPlanet = 1;
   getPlanetsPageResultEl.textContent = numberPlanet;
-  getPlanetsInfo(numberPlanet);
+  getPlanetsInfo(resultEl);
  }
 };
 
 export const getPlanetsBack = async () => {
  if (numberPlanet === 1) return;
+ await getPlanetsInfo(getPlanetsResultEl);
  numberPlanet--;
- getPlanetsInfo(getPlanetsResultEl);
 };
 
 export const getPlanetsNext = async () => {
+ await getPlanetsInfo(getPlanetsResultEl);
  numberPlanet++;
- getPlanetsInfo(getPlanetsResultEl);
 };
 
 getPlanetsPageResultEl.textContent = numberPlanet;
