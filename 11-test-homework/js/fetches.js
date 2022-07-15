@@ -1,8 +1,20 @@
+// Elements
+
+import { getPlanetsPageResultEl } from "./elements.js";
+
+// Constants
+
 import { API } from "./constants.js";
+
+// State
 
 import { stateWookiee } from "./index.js";
 
-import { loaderToggle } from "./functions.js";
+// Functions
+
+import { loaderToggle, numberPlanet } from "./functions.js";
+
+// Fetches
 
 export const getFilm = (film) => {
  loaderToggle();
@@ -10,7 +22,7 @@ export const getFilm = (film) => {
   .then((response) => {
    return response.json();
   })
-  .catch("getFilmError")
+  .catch(() => console.log("getFilmError"))
   .finally(() => loaderToggle());
 };
 
@@ -20,7 +32,7 @@ export const getCharacter = (charact) => {
   .then((response) => {
    return response.json();
   })
-  .catch("getCharactersError")
+  .catch(() => console.log("getCharactersError"))
   .finally(() => loaderToggle());
 };
 
@@ -28,8 +40,9 @@ export const getPlanets = (planetId) => {
  loaderToggle();
  return fetch(`${API}/planets/${planetId}/${stateWookiee.path}`)
   .then((response) => {
+   getPlanetsPageResultEl.textContent = numberPlanet;
    return response.json();
   })
-  .catch("getPlanetsError")
+  .catch(() => console.log("getPlanetsError"))
   .finally(() => loaderToggle());
 };

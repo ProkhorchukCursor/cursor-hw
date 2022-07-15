@@ -138,7 +138,7 @@ export const getInfo = async (resultEl, film) => {
 
 // 3)
 
-let numberPlanet = 1;
+export let numberPlanet = 59;
 
 const getImagePlanet = (planet) => {
  planet.src = "./images/planets/temperate planet.jpg";
@@ -190,9 +190,8 @@ export const getPlanetsInfo = async (resultEl) => {
   addPlanet(getImagePlanet(planet), resultEl);
  } catch (err) {
   numberPlanet = 1;
-  getPlanetsInfo(resultEl);
   getPlanetsPageResultEl.textContent = numberPlanet;
-  console.log(err);
+  getPlanetsInfo(numberPlanet);
  }
 };
 
@@ -200,13 +199,11 @@ export const getPlanetsBack = async () => {
  if (numberPlanet === 1) return;
  numberPlanet--;
  getPlanetsInfo(getPlanetsResultEl);
- getPlanetsPageResultEl.textContent = numberPlanet;
 };
 
 export const getPlanetsNext = async () => {
  numberPlanet++;
  getPlanetsInfo(getPlanetsResultEl);
- getPlanetsPageResultEl.textContent = numberPlanet;
 };
 
 getPlanetsPageResultEl.textContent = numberPlanet;
